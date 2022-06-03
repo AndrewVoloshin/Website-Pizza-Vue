@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <app-overlay/>
+    <app-header/>
+    <app-sidebar v-if="isActiveSidebar"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import AppHeader from '@/components/AppHeader.vue'
+import AppOverlay from '@/components/AppOverlay.vue'
+import AppSidebar from '@/components/AddSidebar.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    AppHeader,
+    AppOverlay,
+    AppSidebar
+  },
+  computed:{
+    isActiveSidebar(){
+      return this.$store.state.isActiveSidebar
+    }
   }
 }
 </script>
