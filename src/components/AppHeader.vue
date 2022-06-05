@@ -4,16 +4,7 @@
       <a class="header__logo">
         <img src="@/assets/Logo.png" alt="logo">
       </a>
-    <!-- <div class="header__menu">
-      <ul class="header__menu__list">
-        <li class="menu__list__item">Home</li>
-        <li class="menu__list__item">Menu</li>
-        <li class="menu__list__item">Log In</li>
-        <li class="menu__list__ite m">Register</li>
-      </ul>
-    </div> -->
     <div class="header__burger" 
-    
     @click=" $store.state.isActiveSidebar = !$store.state.isActiveSidebar "
     :class=" {'header__burger_on':$store.state.isActiveSidebar} " 
     >
@@ -65,15 +56,12 @@ img{
   width: 100%;
   height: 100%;
 }
-
 .header__burger{
   margin-left:563px;
   width:28px;
   height: 18px;
   position: relative;
-  
 }
-
 .center-line{
   width:100%;
   height: 2px;
@@ -90,24 +78,18 @@ img{
   position:absolute;
   transition:all .2s;
 }
-
 .header__burger::before{
   top:0px;
 }
-
 .header__burger::after{
   bottom: 0;
 }
-
 .header__burger_on::before{
   transform: rotate(-45deg) translate(-8px,4px);
 }
-
 .header__burger_on::after{
   transform: rotate(45deg) translate(-8px,-4px);
 }
-
-
 
 @media screen and (min-width: 768px) {
   .header__container{

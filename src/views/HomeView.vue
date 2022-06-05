@@ -2,7 +2,8 @@
   <div class="home">
     <app-overlay/>
     <app-header/>
-    <app-sidebar v-if="isActiveSidebar"/>
+    <app-sidebar/>
+    
   </div>
 </template>
 
@@ -18,10 +19,6 @@ export default {
     AppOverlay,
     AppSidebar
   },
-  computed:{
-    isActiveSidebar(){
-      return this.$store.state.isActiveSidebar
-    }
-  }
+
 }
 </script>
