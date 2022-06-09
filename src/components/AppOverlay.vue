@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 768px){
+@media screen and (min-width: 576px){
   .overlay{
     position: fixed;
     top:0;
@@ -27,6 +27,12 @@ export default {
     color: white;
     font-size: xx-large;
     padding-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .overlay{
+    display:none;
   }
 }
 </style>

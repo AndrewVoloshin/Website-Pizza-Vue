@@ -1,8 +1,26 @@
 <template>
   <div id="app">
-    <router-view/>
+    <app-overlay/>
+    <app-header/>
+    <app-sidebar/>
+    <!-- <router-view/> -->
   </div>
 </template>
+
+<script>
+import AppHeader from '@/components/AppHeader.vue'
+import AppOverlay from '@/components/AppOverlay.vue'
+import AppSidebar from '@/components/AddSidebar.vue'
+
+export default {
+  name: 'HomeView',
+  components: {
+    AppHeader,
+    AppOverlay,
+    AppSidebar
+  },
+}
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');

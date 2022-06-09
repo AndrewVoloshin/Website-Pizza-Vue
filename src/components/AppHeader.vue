@@ -1,9 +1,9 @@
 <template>
   <div class="header">
     <div class="header__container">
-      <a class="header__logo">
-        <img src="@/assets/Logo.png" alt="logo">
-      </a>
+      <router-link class="header__logo" tag="a" to="/">
+        <img src="@/assets/static/Logo.png" alt="logo"/>
+      </router-link >
     <div class="header__burger" 
       @click=" $store.state.isActiveSidebar = !$store.state.isActiveSidebar "
       :class=" {'header__burger_on':$store.state.isActiveSidebar} " 
@@ -44,9 +44,12 @@ export default {
 }
 .header__container{
   display: flex;
-  padding: 0 16px;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+  
+  
 }
 .header__logo{
   position: relative;
@@ -126,7 +129,11 @@ img{
   background: #0041bb;
 }
 
-
+@media screen and(min-width: 576px){
+  .header__container{
+    width:540px;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .header__container{

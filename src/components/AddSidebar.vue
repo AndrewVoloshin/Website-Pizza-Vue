@@ -6,10 +6,11 @@
   ></div>
   <div class="sidebar"
   :class="{'sidebar_on':$store.state.isActiveSidebar}"
+  @click="$store.state.isActiveSidebar = false"
   >
     <div class="sidebar__conteiner">
       <a class="sidebar__logo">
-        <img src="@/assets/Logo.png" alt="logo">
+        <img src="@/assets/static/Logo.png" alt="logo">
       </a>
       <nav>
         <ul class="sidebar__menu">
@@ -43,24 +44,24 @@ export default {
   background:rgb(0,0,0, 0.5);
   height: 100vh;
   width: 100vw;
+  z-index: 99;
 }
-
 .sidebar__overlay_on{
   visibility: visible;
 }
-
 .sidebar{
   position:absolute;
   top:0px;
-  left:-40vw;
+  transform:translateX(-100%);
   width: 40vw;
-  height: 100vw;
+  height: 100%;
   background: white;
   padding: 0 16px;
   transition: left .2s;
+  z-index:99;
 }
 .sidebar_on{
-  left:0vw;
+  transform:translateX(0);
   transition: left .2s;
 }
 .sidebar__logo{
@@ -117,12 +118,13 @@ img{
   transition:width 0.2s;
 }
 .menu__item:hover:after{
-width:100%;
+  width:100%;
 }
 
-
-
-
-
+@media screen and ( max-width:576px){
+  .sidebar{
+    width: 70vw;
+  }
+}
 
 </style>
