@@ -21,7 +21,7 @@
   justify-content: center;
   padding-top: 3rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(@/assets/static/Background\ Pizza.jpg);
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-size: cover;
   background-position: 50%;
@@ -30,13 +30,13 @@
 .home__container{
   margin-top: 3rem;
   padding: 3rem 1rem 0 ;
- 
   
 }
 .home__logo{
   position: relative;
-  width: 400px;
-  height: 200px;
+  width: 300px;
+  height: 150px;
+  left: -20px;
 }
 .home__img{
   position:absolute;
@@ -56,7 +56,6 @@
   color: white;
   font-weight: 300;
   line-height: 1.2;
-
 }
 
 .home__btn{
@@ -75,27 +74,32 @@
   filter: drop-shadow(0 0 8px #724cf9);
 }
 
-@media screen and (max-width: 768px){
-  .home{
-    display: none;
-  }
-}
-
 @media screen and (min-width: 768px){
   .home__container{
     width: 720px;
   }
-  .home__logo{
-    width: 300px;
-    height: 150px;
-    left: -24px;
-  }
 }
 
 @media screen and (min-width: 992px){
+  .home__container{
+    width: 960px;
+  }
+
   .home__logo{
     width: 400px;
     height: 200px;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .home__container{
+    width: 1140px;
+  }
+}
+
+@media screen and (min-width: 1400px){
+  .home__container{
+    width: 1320px;
   }
 }
 </style>

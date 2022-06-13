@@ -3,22 +3,25 @@
     <app-overlay/>
     <app-header/>
     <app-sidebar/>
-    <!-- <router-view/> -->
+    <router-view/>
+    <app-footer/>
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/AppHeader.vue'
 import AppOverlay from '@/components/AppOverlay.vue'
-import AppSidebar from '@/components/AddSidebar.vue'
+import AppSidebar from '@/components/AppSidebar.vue'
+import AppFooter from '@/components/AppFooter.vue'
 
 export default {
   name: 'HomeView',
   components: {
     AppHeader,
     AppOverlay,
-    AppSidebar
-  },
+    AppSidebar,
+    AppFooter
+},
 }
 </script>
 

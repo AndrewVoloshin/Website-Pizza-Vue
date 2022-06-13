@@ -57,12 +57,12 @@ export default {
   height: 100%;
   background: white;
   padding: 0 16px;
-  transition: left .2s;
+  transition: transform .2s;
   z-index:99;
 }
 .sidebar_on{
   transform:translateX(0);
-  transition: left .2s;
+  transition: transform .2s;
 }
 .sidebar__logo{
   position: relative;
