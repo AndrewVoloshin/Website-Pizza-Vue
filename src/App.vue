@@ -29,7 +29,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap');
 :root{
-    --font-sans-serif: 'Noto Sans','Roboto', sans-serif;
+  --font-sans-serif: 'Noto Sans','Roboto', sans-serif;
 }
 
 *{

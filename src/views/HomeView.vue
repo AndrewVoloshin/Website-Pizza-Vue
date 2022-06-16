@@ -25,7 +25,6 @@
   height: 100vh;
   background-size: cover;
   background-position: 50%;
-  background-attachment: fixed;
 }
 .home__container{
   margin-top: 3rem;
@@ -36,7 +35,7 @@
   position: relative;
   width: 300px;
   height: 150px;
-  left: -20px;
+  left: -24px;
 }
 .home__img{
   position:absolute;
@@ -74,6 +73,26 @@
   filter: drop-shadow(0 0 8px #724cf9);
 }
 
+@media screen and (max-width: 576px){
+  .home__logo{
+    height: 100px;
+    width: 200px;
+    left: -12px;
+    margin: 12px 0;
+  }
+
+  .home__title{
+    font-size: 32px;
+    margin: 12px 0;
+  }
+  .home__subtitle{
+    font-size: 18px;
+    margin: 24px 0 12px;
+  }
+ 
+}
+
+
 @media screen and (min-width: 768px){
   .home__container{
     width: 720px;
@@ -81,6 +100,9 @@
 }
 
 @media screen and (min-width: 992px){
+  .home{
+    background-attachment: fixed;
+  }
   .home__container{
     width: 960px;
   }
@@ -88,6 +110,18 @@
   .home__logo{
     width: 400px;
     height: 200px;
+    left: -28px;
+  }
+
+  .home__subtitle{
+    font-size: 32px;
+    margin: 8px 0;
+  }
+
+  .home__title{
+    font-size: 50px;
+    font-weight: 100;
+    margin: 12px 0;
   }
 }
 

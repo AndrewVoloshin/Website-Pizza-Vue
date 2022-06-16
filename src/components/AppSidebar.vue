@@ -1,26 +1,23 @@
 <template>
-<div>
-  <div class="sidebar__overlay " 
-    @click="$store.state.isActiveSidebar = false"
-    :class="{'sidebar__overlay_on':$store.state.isActiveSidebar} "
-  ></div>
-  <div class="sidebar"
+<div class="sidebar" 
+  @click="$store.state.isActiveSidebar = false"
+  :class="{'sidebar_on':$store.state.isActiveSidebar} "
+>
+  <div class="sidebar__conteiner"
   :class="{'sidebar_on':$store.state.isActiveSidebar}"
   @click="$store.state.isActiveSidebar = false"
   >
-    <div class="sidebar__conteiner">
-      <a class="sidebar__logo">
-        <img src="@/assets/static/Logo.png" alt="logo">
-      </a>
-      <nav>
-        <ul class="sidebar__menu">
-          <router-link class="menu__item" tag="li" to="/" exact active-class="menu__item_on" >Home</router-link>
-          <router-link class="menu__item" tag="li" to="/menu" exact active-class="menu__item_on">Menu</router-link>
-          <router-link class="menu__item" tag="li" to="/login" exact active-class="menu__item_on">Log In</router-link>
-          <router-link class="menu__item" tag="li" to="/register" exact active-class="menu__item_on">Register</router-link>
-        </ul>
-      </nav>
-    </div> 
+    <a class="sidebar__logo">
+      <img src="@/assets/static/Logo.png" alt="logo">
+    </a>
+    <nav>
+      <ul class="sidebar__menu">
+        <router-link class="menu__item" tag="li" to="/" exact active-class="menu__item_on" >Home</router-link>
+        <router-link class="menu__item" tag="li" to="/menu" exact active-class="menu__item_on">Menu</router-link>
+        <router-link class="menu__item" tag="li" to="/login" exact active-class="menu__item_on">Log In</router-link>
+        <router-link class="menu__item" tag="li" to="/register" exact active-class="menu__item_on">Register</router-link>
+      </ul>
+    </nav>
   </div>
 </div>
 </template>
@@ -36,29 +33,26 @@ export default {
 </script>
 
 <style scoped>
-.sidebar__overlay{
+.sidebar{
   visibility: hidden;
-  position:absolute;
-  top:0px;
-  left:0px;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
   background:rgb(0,0,0, 0.5);
-  height: 100vh;
-  width: 100vw;
   z-index: 99;
 }
-.sidebar__overlay_on{
+.sidebar_on{
   visibility: visible;
 }
-.sidebar{
-  position:absolute;
-  top:0px;
-  transform:translateX(-100%);
+.sidebar__conteiner{
   width: 40vw;
   height: 100%;
   background: white;
   padding: 0 16px;
+  transform:translateX(-100%);
   transition: transform .2s;
-  z-index:99;
 }
 .sidebar_on{
   transform:translateX(0);
@@ -122,7 +116,7 @@ img{
 }
 
 @media screen and ( max-width:576px){
-  .sidebar{
+  .sidebar__conteiner{
     width: 70vw;
   }
 }
