@@ -45,4 +45,8 @@ body {
   color: #212529;
   background-color: #fff;
 }
+
+strong{
+  font-weight: 500;
+}
 </style>

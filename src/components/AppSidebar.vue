@@ -1,12 +1,12 @@
 <template>
 <div class="sidebar" 
   @click="$store.state.isActiveSidebar = false"
-  :class="{'sidebar_on':$store.state.isActiveSidebar} "
+  :class="{'sidebar_on':isActiveSidebar} "
 >
   <div class="sidebar__conteiner"
-  :class="{'sidebar_on':$store.state.isActiveSidebar}"
+  :class="{'sidebar_on':isActiveSidebar}"
   @click="$store.state.isActiveSidebar = false"
-  >
+  > 
     <a class="sidebar__logo">
       <img src="@/assets/static/Logo.png" alt="logo">
     </a>
@@ -42,6 +42,7 @@ export default {
   bottom:0;
   background:rgb(0,0,0, 0.5);
   z-index: 99;
+
 }
 .sidebar_on{
   visibility: visible;
@@ -52,11 +53,11 @@ export default {
   background: white;
   padding: 0 16px;
   transform:translateX(-100%);
-  transition: transform .2s;
+  transition: .2s;
 }
 .sidebar_on{
   transform:translateX(0);
-  transition: transform .2s;
+  transition: .2s;
 }
 .sidebar__logo{
   position: relative;
