@@ -1,26 +1,26 @@
 <template>
   <div class="card" @mouseover="isMouseOver=true" @mouseleave="isMouseOver=false" >
     <div class="card__img">
-      <img :class="{'card_hover':isMouseOver}" :src='pizza.img' :alt="pizza.imgSrc"/>
+      <img :class="{'card_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
     </div>
     <div class="card__content">
-      <div class="card__title"><strong>{{pizza.name}}</strong></div>
-        <span class="card__description">{{pizza.description}}</span>
+      <div class="card__title"><strong>{{item.name}}</strong></div>
+        <span class="card__description">{{item.description}}</span>
       <div class="card__info">
-        <span class="info__item"><strong>$</strong>{{pizza.cost}}</span>
+        <span class="info__item"><strong>$</strong>{{item.cost}}</span>
         <div class="info__action">
           <button class="info__btn" @click="changeOrder(-1)" ><i class="minus"></i></button>
-          <span class="info__result"> <strong> {{pizza.order}} </strong> </span>
+          <span class="info__result"> <strong> {{item.order}} </strong> </span>
           <button class="info__btn" @click="changeOrder(1)"><i class="plus"></i></button>
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </template>
 
 <script>
 export default {
-  props:['pizza','index'],
+  props:['item','index','store'],
   data(){
     return{
       isMouseOver:false,
@@ -28,8 +28,11 @@ export default {
   },
   methods:{
     changeOrder(val){
-      if( this.$store.state.pizza[this.index].order ===0 && val===(-1)) return
-      this.$store.state.pizza[this.index].order += val
+      if( this.store[this.index].order ===0 && val===(-1)) return
+      // eslint-disable-next-line vue/no-mutating-props
+      this.store[this.index].order +=val
+      this.store[this.index].order>0 ?
+      this.$store.state.isActiveButtonOrder=true : this.$store.state.isActiveButtonOrder= false
     }
   }
 }

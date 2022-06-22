@@ -21,7 +21,7 @@
         <div class="footer__item3">
           
             <h2 class="footer__title">social media</h2>
-            <font-awesome-icon icon="fa-brands fa-facebook-f" />
+            <!-- <font-awesome-icon icon="fa-brands fa-facebook-f" /> -->
             <div class="footer__link">
               <i class="link__facebook"></i>
             </div>
