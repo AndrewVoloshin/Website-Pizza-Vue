@@ -49,4 +49,9 @@ body {
 strong{
   font-weight: 500;
 }
+
+h1{
+  font-weight: 500;
+  line-height: 1.2
+}
 </style>

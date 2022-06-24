@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     isActiveSidebar: false,
     isActiveButtonOrder:false,
+    generalOrder:0,
     vegPizzas,
     bestSellers,
     nonVegPizzas,

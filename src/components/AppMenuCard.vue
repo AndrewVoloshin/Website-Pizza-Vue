@@ -31,7 +31,8 @@ export default {
       if( this.store[this.index].order ===0 && val===(-1)) return
       // eslint-disable-next-line vue/no-mutating-props
       this.store[this.index].order +=val
-      this.store[this.index].order>0 ?
+      this.$store.state.generalOrder +=val
+      this.$store.state.generalOrder>0 ?
       this.$store.state.isActiveButtonOrder=true : this.$store.state.isActiveButtonOrder= false
     }
   }
@@ -41,6 +42,8 @@ export default {
 
 <style scoped>
 .card{
+  display:flex;
+  flex-direction: column;
   margin: 8px 0 16px;
   border-radius: 8px;
   overflow: hidden;
@@ -66,6 +69,10 @@ img{
 }
 
 .card__content{
+  display:flex;
+  flex-direction: column;
+  flex:1 0 auto;
+  justify-content: space-between;
   background: #ddd;
   padding: 0 16px;
 }
