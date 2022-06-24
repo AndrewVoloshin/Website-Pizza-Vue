@@ -7,23 +7,23 @@
         <div class="menu__section1">
           <app-menu-title :title="'Best Sellers'"/>
           <div class="content__section">
-            <app-menu-card :store="$store.state.bestSellers" :item="item" :index="index" v-for="(item,index) in $store.state.bestSellers" :key="index+'bestSellers'"/>
+            <app-menu-cart :store="$store.state.bestSellers" :item="item" :index="index" v-for="(item,index) in $store.state.bestSellers" :key="index+'bestSellers'"/>
           </div>
           <app-menu-title :title="'Veg Pizzas'"/>
           <div class="content__section">
-            <app-menu-card :store="$store.state.vegPizzas" :item="item" :index="index" v-for="(item, index) in $store.state.vegPizzas" :key="index+'vegPizza'"/>
+            <app-menu-cart :store="$store.state.vegPizzas" :item="item" :index="index" v-for="(item, index) in $store.state.vegPizzas" :key="index+'vegPizza'"/>
           </div>
           <app-menu-title :title="'Non Veg Pizzas'"/>
           <div class="content__section">
-            <app-menu-card :store="$store.state.nonVegPizzas" :item="item" :index="index" v-for="(item, index) in $store.state.nonVegPizzas" :key="index+'nonVegPizzas'"/>
+            <app-menu-cart :store="$store.state.nonVegPizzas" :item="item" :index="index" v-for="(item, index) in $store.state.nonVegPizzas" :key="index+'nonVegPizzas'"/>
           </div>
           <app-menu-title :title="'Side Dishes'"/>
           <div class="content__section">
-            <app-menu-card :store="$store.state.sideDishes" :item="item" :index="index" v-for="(item, index) in $store.state.sideDishes" :key="index+'sideDishes'"/>
+            <app-menu-cart :store="$store.state.sideDishes" :item="item" :index="index" v-for="(item, index) in $store.state.sideDishes" :key="index+'sideDishes'"/>
           </div>
           <app-menu-title :title="'Desserts'"/>
           <div class="content__section">
-            <app-menu-card :store="$store.state.desserts" :item="item" :index="index" v-for="(item, index) in $store.state.desserts" :key="index+'desserts'"/>
+            <app-menu-cart :store="$store.state.desserts" :item="item" :index="index" v-for="(item, index) in $store.state.desserts" :key="index+'desserts'"/>
           </div>
           <app-button-order v-if="$store.state.isActiveButtonOrder" />
         </div>
@@ -37,13 +37,13 @@
   </div> 
 </template>
 <script>
-import AppMenuCard from '@/components/AppMenuCard.vue'
+import AppMenuCart from '@/components/AppMenuCart.vue'
 import AppMenuTitle from '@/components/AppMenuTitle.vue'
 import AppButtonOrder from '@/components/AppButtonOrder.vue'
 import AppCardOrder from '@/components/AppCartOrder.vue'
 export default {
   components:{
-    AppMenuCard,
+    AppMenuCart,
     AppMenuTitle,
     AppButtonOrder,
     AppCardOrder

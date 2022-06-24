@@ -1,11 +1,11 @@
 <template>
-  <div class="card" @mouseover="isMouseOver=true" @mouseleave="isMouseOver=false" >
-    <div class="card__img">
+  <div class="cart" @mouseover="isMouseOver=true" @mouseleave="isMouseOver=false" >
+    <div class="cart__img">
       <img :class="{'card_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
     </div>
-    <div class="card__content">
-      <div class="card__title"><strong>{{item.name}}</strong></div>
-        <span class="card__description">{{item.description}}</span>
+    <div class="cart__content">
+      <div class="cart__title"><strong>{{item.name}}</strong></div>
+        <span class="cart__description">{{item.description}}</span>
       <div class="card__info">
         <span class="info__item"><strong>$</strong>{{item.cost}}</span>
         <div class="info__action">
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-.card{
+.cart{
   display:flex;
   flex-direction: column;
   margin: 8px 0 16px;
@@ -53,7 +53,7 @@ export default {
     transform:scale(1.2);
   }
 
-.card__img{
+.cart__img{
   position:relative;
   width: auto;
   height: 150px;
@@ -68,7 +68,7 @@ img{
   transition: 0.2s;
 }
 
-.card__content{
+.cart__content{
   display:flex;
   flex-direction: column;
   flex:1 0 auto;
@@ -77,7 +77,7 @@ img{
   padding: 0 16px;
 }
 
-.card__description{
+.cart__description{
   display:inline-block;
   margin-bottom:12px;
   color: #6c757d;
