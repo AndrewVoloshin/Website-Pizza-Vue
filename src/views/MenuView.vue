@@ -29,7 +29,7 @@
         </div>
         <div class="menu__section2">
           <div class="menu__order">
-            <app-card-order/>
+            <app-cart-order/>
           </div>
         </div>
       </div>
@@ -40,13 +40,13 @@
 import AppMenuCart from '@/components/AppMenuCart.vue'
 import AppMenuTitle from '@/components/AppMenuTitle.vue'
 import AppButtonOrder from '@/components/AppButtonOrder.vue'
-import AppCardOrder from '@/components/AppCartOrder.vue'
+import AppCartOrder from '@/components/AppCartOrder.vue'
 export default {
   components:{
     AppMenuCart,
     AppMenuTitle,
     AppButtonOrder,
-    AppCardOrder
+    AppCartOrder
   },
   data(){
     return{
@@ -114,7 +114,7 @@ export default {
     flex-wrap: wrap;
   }
 
-  .card{
+  .cart{
     margin: 8px 24px 8px 0;
     width: 200px;
   }
@@ -142,7 +142,7 @@ export default {
 
   }
 
-  .card{
+  .cart{
   margin: 8px 16px 8px 0;
   width: 185px;
 }

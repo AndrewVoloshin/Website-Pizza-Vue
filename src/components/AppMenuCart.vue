@@ -1,12 +1,12 @@
 <template>
   <div class="cart" @mouseover="isMouseOver=true" @mouseleave="isMouseOver=false" >
     <div class="cart__img">
-      <img :class="{'card_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
+      <img :class="{'cart_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
     </div>
     <div class="cart__content">
       <div class="cart__title"><strong>{{item.name}}</strong></div>
         <span class="cart__description">{{item.description}}</span>
-      <div class="card__info">
+      <div class="cart__info">
         <span class="info__item"><strong>$</strong>{{item.cost}}</span>
         <div class="info__action">
           <button class="info__btn" @click="changeOrder(-1)" ><i class="minus"></i></button>
@@ -32,8 +32,21 @@ export default {
       // eslint-disable-next-line vue/no-mutating-props
       this.store[this.index].order +=val
       this.$store.state.generalOrder +=val
+
       this.$store.state.generalOrder>0 ?
       this.$store.state.isActiveButtonOrder=true : this.$store.state.isActiveButtonOrder= false
+
+      if(this.store[this.index].order>0){
+        if( !this.$store.state.order.length ){
+          this.$store.state.order.push(this.store[this.index])
+        }
+        let isAdd = this.$store.state.order.every((element=>element !== this.store[this.index]))
+        if (isAdd) this.$store.state.order.push(this.store[this.index])
+      }
+      if(this.store[this.index].order===0){
+        let localOrder= this.$store.state.order.filter((elem)=>elem.order !==0)
+        this.$store.state.order =localOrder
+      }
     }
   }
 }
@@ -49,7 +62,7 @@ export default {
   overflow: hidden;
 }
 
-  .card_hover{
+  .cart_hover{
     transform:scale(1.2);
   }
 
@@ -87,7 +100,7 @@ img{
   font-style: italic;
 }
 
-.card__info{
+.cart__info{
   display: flex;
   justify-content: space-between;
   align-items: center;

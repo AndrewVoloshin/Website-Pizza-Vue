@@ -6,14 +6,23 @@
       <div class="cart-order__content">
         <span v-if="!$store.state.generalOrder">Cart is Empty!</span>
       </div>
+<!-- <div>{{$store.state.order}}</div> -->
+<app-sub-cart-order  />
+
     </div>
   </div>
 </template>
 
 <script>
-export default {
+// import AppSubCartOrder from '@/components/AppSubCartOrder.vue'
 
-}
+
+// export default { 
+//   name:AppSubCartOrder,
+//   componets:{
+//     AppSubCartOrder
+//   }
+// }
 </script>
 
 
@@ -30,6 +39,7 @@ h1{
 }
 .cart-order{
   background: #ddd;
+  overflow: scroll;
 }
 
 .cart-order__conteiner{

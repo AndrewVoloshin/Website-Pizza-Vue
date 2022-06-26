@@ -13,7 +13,8 @@ export default new Vuex.Store({
     bestSellers,
     nonVegPizzas,
     sideDishes,
-    desserts
+    desserts,
+    order:[],
   },
   getters: {
   },
