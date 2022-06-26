@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {vegPizzas,bestSellers,nonVegPizzas,sideDishes,desserts} from '@/menu.js'
+import menu from '@/router/menu.js'
+
 
 Vue.use(Vuex)
 
@@ -9,11 +10,6 @@ export default new Vuex.Store({
     isActiveSidebar: false,
     isActiveButtonOrder:false,
     generalOrder:0,
-    vegPizzas,
-    bestSellers,
-    nonVegPizzas,
-    sideDishes,
-    desserts
   },
   getters: {
   },
@@ -22,5 +18,6 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    menu
   }
 })

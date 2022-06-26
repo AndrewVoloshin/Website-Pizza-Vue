@@ -17,10 +17,10 @@
     </div>
   </div> 
 </template>
-
+ 
 <script>
 export default {
-  props:['item','index','store'],
+  props:['item'],
   data(){
     return{
       isMouseOver:false,
@@ -28,9 +28,9 @@ export default {
   },
   methods:{
     changeOrder(val){
-      if( this.store[this.index].order ===0 && val===(-1)) return
+      if( this.item.order ===0 && val===(-1)) return
       // eslint-disable-next-line vue/no-mutating-props
-      this.store[this.index].order +=val
+      this.item.order +=val
       this.$store.state.generalOrder +=val
       this.$store.state.generalOrder>0 ?
       this.$store.state.isActiveButtonOrder=true : this.$store.state.isActiveButtonOrder= false
