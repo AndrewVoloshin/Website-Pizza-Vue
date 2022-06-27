@@ -23,5 +23,11 @@
   background: #5a2ff3;
 }
 
+@media screen and (min-width:992px) {
+  .button-order{
+    display:none;
+  }
+}
+
 
 </style>

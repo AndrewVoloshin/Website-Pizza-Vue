@@ -3,15 +3,39 @@
     <h1>Cart</h1>
     <button v-if="$store.state.generalOrder" class="btn__clear">Clear Cart</button>
     <div class="cart-order__conteiner">
-      <div class="cart-order__content">
-        <span v-if="!$store.state.generalOrder">Cart is Empty!</span>
+      <div v-if="!$store.state.generalOrder" class="cart-order__content">
+        <span >Cart is Empty!</span>
       </div>
+
+      <app-menu-card
+      :displayBorder="true"
+      :notDiplayImg="true"
+      :item="item" 
+      v-for="(item,index) in order" 
+      :key="index+'order'" />
+
     </div>
   </div>
 </template>
 
 <script>
+import AppMenuCard from '@/components/AppMenuCard.vue'
+
 export default {
+  components:{
+    AppMenuCard,
+  },
+  computed:{
+    order(){
+      let localOrder=[]
+      for (let key in this.$store.state.menu){
+        this.$store.state.menu[key].forEach((elem)=>{
+          if(elem.order>0) localOrder.push(elem)
+        })
+      }
+      return localOrder
+    }
+  }
 
 }
 </script>

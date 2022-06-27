@@ -7,23 +7,39 @@
         <div class="menu__section1">
           <app-menu-title :title="'Best Sellers'"/>
           <div class="content__section">
-            <app-menu-card :item="item"  v-for="(item,index) in bestSellers" :key="index+'bestSellers'"/>
+            <app-menu-card
+            :item="item" 
+            v-for="(item,index) in bestSellers"
+            :key="index+'bestSellers'"/>
           </div>
           <app-menu-title :title="'Veg Pizzas'"/>
           <div class="content__section">
-            <app-menu-card  :item="item"  v-for="(item,index) in $store.state.menu.vegPizzas" :key="index+'vegPizzas'"/>
+            <app-menu-card
+            :item="item"  
+            v-for="(item,index) in $store.state.menu.vegPizzas"
+            :key="index+'vegPizzas'"/>
           </div>
           <app-menu-title :title="'Non Veg Pizzas'"/>
           <div class="content__section">
-            <app-menu-card  :item="item"  v-for="(item,index) in $store.state.menu.nonVegPizzas" :key="index+'vegPizzas'"/>
+            <app-menu-card 
+            :item="item"  
+            v-for="(item,index) in $store.state.menu.nonVegPizzas" 
+            :key="index+'vegPizzas'"/>
           </div>
           <app-menu-title :title="'Side Dishes'"/>
           <div class="content__section">
-            <app-menu-card  :item="item"  v-for="(item,index) in $store.state.menu.sideDishes" :key="index+'vegPizzas'"/>
+            <app-menu-card 
+            :item="item"  
+            v-for="(item,index) in $store.state.menu.sideDishes" 
+            :key="index+'vegPizzas'"/>
           </div>
           <app-menu-title :title="'Desserts'"/>
           <div class="content__section">
-            <app-menu-card  :item="item"  v-for="(item,index) in $store.state.menu.desserts" :key="index+'vegPizzas'"/>
+            <app-menu-card 
+            :img="true"  
+            :item="item" 
+            v-for="(item,index) in $store.state.menu.desserts" 
+            :key="index+'vegPizzas'"/>
           </div>
           <app-button-order v-if="$store.state.isActiveButtonOrder" />
         </div>
@@ -57,7 +73,8 @@ export default {
         })
       }
     return localBestSellers
-    }
+    },
+   
   },
   data(){
     return{

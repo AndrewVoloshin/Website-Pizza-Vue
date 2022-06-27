@@ -1,26 +1,29 @@
 <template>
   <div class="card" @mouseover="isMouseOver=true" @mouseleave="isMouseOver=false" >
-    <div class="card__img">
-      <img :class="{'card_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
-    </div>
-    <div class="card__content">
-      <div class="card__title"><strong>{{item.name}}</strong></div>
-        <span class="card__description">{{item.description}}</span>
-      <div class="card__info">
-        <span class="info__item"><strong>$</strong>{{item.cost}}</span>
-        <div class="info__action">
-          <button class="info__btn" @click="changeOrder(-1)" ><i class="minus"></i></button>
-          <span class="info__result"> <strong> {{item.order}} </strong> </span>
-          <button class="info__btn" @click="changeOrder(1)"><i class="plus"></i></button>
+    <!-- <div :class="{'card__border':displayBorder}"> -->
+      <div class="card__img" v-if="!notDiplayImg">
+        <img :class="{'card_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
+      </div>
+      
+      <div class="card__content">
+        <div class="card__title"><strong>{{item.name}}</strong></div>
+          <span class="card__description">{{item.description}}</span>
+        <div class="card__info">
+          <span class="info__item"><strong>$</strong>{{item.cost}}</span>
+          <div class="info__action">
+            <button class="info__btn" @click="changeOrder(-1)" ><i class="minus"></i></button>
+            <span class="info__result"> <strong> {{item.order}} </strong> </span>
+            <button class="info__btn" @click="changeOrder(1)"><i class="plus"></i></button>
+          </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div> 
 </template>
  
 <script>
 export default {
-  props:['item'],
+  props:['item','notDiplayImg','displayBorder'],
   data(){
     return{
       isMouseOver:false,
@@ -58,6 +61,11 @@ export default {
   width: auto;
   height: 150px;
   overflow:hidden;
+}
+
+.card__border{
+  border-top:1px solid black;
+  border-bottom:1px solid black;
 }
 
 img{
