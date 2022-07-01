@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <div class="menu" >
     <div class="menu__container">
       <h1 class="menu__title"> <strong>menu</strong></h1>
       <div class="menu__line"></div>
@@ -41,7 +41,10 @@
             v-for="(item,index) in $store.state.menu.desserts" 
             :key="index+'vegPizzas'"/>
           </div>
-          <app-button-order v-if="$store.state.isActiveButtonOrder" />
+          <div v-if="$store.state.isActiveButtonOrder && isButtonOn" class="section__button">
+            <app-button-order  />
+          </div>
+
         </div>
         <div class="menu__section2">
           <div class="menu__order">
@@ -76,12 +79,26 @@ export default {
     },
    
   },
+  
   data(){
     return{
+      isButtonOn: false,
     }
   },
-
+   created() {
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+  },
+   destroyed() {
+    window.removeEventListener('resize', this.onResize)
+  },
+  methods: {
+    onResize() {
+      this.isButtonOn = window.innerWidth <= 992;
+    }
+  }
 }
+
 </script>
 
 <style scoped>
@@ -131,6 +148,14 @@ export default {
   top:64px;
   margin-top: 24px;
 }
+
+.section__button{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width: 100%;
+}
+
 
 @media screen and ( min-width:768px){
   .menu__container{

@@ -1,23 +1,20 @@
 <template>
   <div class="card" @mouseover="isMouseOver=true" @mouseleave="isMouseOver=false" >
-    <!-- <div :class="{'card__border':displayBorder}"> -->
-      <div class="card__img" v-if="!notDiplayImg">
-        <img :class="{'card_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
-      </div>
-      
-      <div class="card__content">
-        <div class="card__title"><strong>{{item.name}}</strong></div>
-          <span class="card__description">{{item.description}}</span>
-        <div class="card__info">
-          <span class="info__item"><strong>$</strong>{{item.cost}}</span>
-          <div class="info__action">
-            <button class="info__btn" @click="changeOrder(-1)" ><i class="minus"></i></button>
-            <span class="info__result"> <strong> {{item.order}} </strong> </span>
-            <button class="info__btn" @click="changeOrder(1)"><i class="plus"></i></button>
-          </div>
+    <div class="card__img" v-if="!notDiplayImg">
+      <img :class="{'card_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
+    </div>
+    <div :class="['card__content', {'card__border':displayBorder}]" >
+      <div class="card__title"><strong>{{item.name}}</strong></div>
+        <span class="card__description">{{item.description}}</span>
+      <div class="card__info">
+        <span class="info__item"><strong>$</strong>{{item.cost}}</span>
+        <div class="info__action">
+          <button class="info__btn" @click="changeOrder(-1)" ><i class="minus"></i></button>
+          <span class="info__result"> <strong> {{item.order}} </strong> </span>
+          <button class="info__btn" @click="changeOrder(1)"><i class="plus"></i></button>
         </div>
       </div>
-    <!-- </div> -->
+    </div>
   </div> 
 </template>
  
@@ -34,9 +31,8 @@ export default {
       if( this.item.order ===0 && val===(-1)) return
       // eslint-disable-next-line vue/no-mutating-props
       this.item.order +=val
-      this.$store.state.generalOrder +=val
-      this.$store.state.generalOrder>0 ?
-      this.$store.state.isActiveButtonOrder=true : this.$store.state.isActiveButtonOrder= false
+      this.$store.state.valueGeneralOrder +=val
+      this.$store.state.isActiveButtonOrder = this.$store.state.valueGeneralOrder>0 ? true : false
     }
   }
 }
@@ -50,11 +46,12 @@ export default {
   margin: 8px 0 16px;
   border-radius: 8px;
   overflow: hidden;
+  width: 100%;
 }
 
-  .card_hover{
-    transform:scale(1.2);
-  }
+.card_hover{
+  transform:scale(1.2);
+}
 
 .card__img{
   position:relative;
@@ -64,8 +61,8 @@ export default {
 }
 
 .card__border{
-  border-top:1px solid black;
   border-bottom:1px solid black;
+  padding: 0 8px !important;
 }
 
 img{

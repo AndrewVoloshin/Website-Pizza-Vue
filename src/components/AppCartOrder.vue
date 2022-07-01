@@ -1,42 +1,61 @@
 <template>
   <div class="cart-order">
     <h1>Cart</h1>
-    <button v-if="$store.state.generalOrder" class="btn__clear">Clear Cart</button>
-    <div class="cart-order__conteiner">
-      <div v-if="!$store.state.generalOrder" class="cart-order__content">
+    <button v-if="$store.state.valueGeneralOrder" @click="clear()" class="btn__clear">Clear Cart</button>
+    <div :class="['cart-order__conteiner',{'order':$store.state.valueGeneralOrder}]">
+      <div v-if="!$store.state.valueGeneralOrder" class="cart-order__content">
         <span >Cart is Empty!</span>
       </div>
-
-      <app-menu-card
-      :displayBorder="true"
-      :notDiplayImg="true"
-      :item="item" 
-      v-for="(item,index) in order" 
-      :key="index+'order'" />
-
+      <div class="menu__container">
+        <app-menu-card
+        :displayBorder="true"
+        :notDiplayImg="true"
+        :item="item" 
+        v-for="(item,index) in order" 
+        :key="index+'order'" />
+      </div>
+     
     </div>
+     <div v-if="$store.state.valueGeneralOrder" class="cart__section">
+        <strong> Total {{total}}</strong> 
+        <div class="section__button">
+          <app-button-order/>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
 import AppMenuCard from '@/components/AppMenuCard.vue'
+import AppButtonOrder from './AppButtonOrder.vue'
 
 export default {
   components:{
     AppMenuCard,
+    AppButtonOrder
+  },
+  data(){
+    return{
+    }
   },
   computed:{
     order(){
-      let localOrder=[]
-      for (let key in this.$store.state.menu){
-        this.$store.state.menu[key].forEach((elem)=>{
-          if(elem.order>0) localOrder.push(elem)
-        })
-      }
-      return localOrder
+      return  this.$store.getters.computedOrder
+    },
+
+    total(){
+      return this.$store.getters.computedOrder.reduce((acc,current)=>{
+        return acc+ current.order*current.cost
+      },0)
+    }
+    
+  },
+  methods:{
+    clear(){
+      this.$store.getters.computedOrder.forEach(elem=>elem.order=0)
+      this.$store.state.valueGeneralOrder =0
     }
   }
-
 }
 </script>
 
@@ -57,14 +76,27 @@ h1{
 }
 
 .cart-order__conteiner{
-  height: 400px;
+  height: 310px;
   display:flex;
+  flex-direction: column;
   justify-content: center;
+  
   align-items: center;
+  margin: 8px 8px 0 ;
+  }
+
+.order{
+  justify-content: space-between;
+  border-top: 1px solid #000;
 }
 
 .cart-order__content{
   margin: 0 8px;
+}
+
+.menu__container{
+  width: 100%;
+  overflow-y: auto;
 }
 
 .btn__clear{
@@ -81,6 +113,18 @@ h1{
   margin: 8px;
   line-height: 1.5;
   transition: .15s ease-in-out;
+}
+
+.section__button{
+  position:relative;
+  width: 100%;
+  height: auto;
+
+}
+
+.cart__section{
+  display: flex;
+  flex-direction: column;
 }
 
 </style>
