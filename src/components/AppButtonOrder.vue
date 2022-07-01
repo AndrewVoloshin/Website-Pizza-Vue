@@ -4,11 +4,7 @@
 
 <style scoped>
 .button-order{
-  /* position:absolute; */
-  /* left:0;
-  bottom:0; */
   width: 100%;
-  /* height: 100%; */ 
   background: #724cf9;
   z-index: 98;
   border:none;
@@ -23,12 +19,6 @@
 .button-order:hover{
   background: #5a2ff3;
 }
-/* 
-@media screen and (min-width:992px) {
-  .button-order{
-    display:none;
-  }
-} */
 
 
 </style>
