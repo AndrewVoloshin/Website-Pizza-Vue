@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     onResize() {
-      this.isButtonOn = window.innerWidth <= 992;
+      this.isButtonOn = window.innerWidth < 992;
     }
   }
 }
@@ -115,6 +115,7 @@ export default {
 }
 .menu__content{
   display:flex;
+  margin-bottom: 24px;
 }
 .menu__section1{
   flex: 0 0 100%;
@@ -191,15 +192,35 @@ export default {
     width:33%;
   }
 
-  .menu__content{
-
-  }
-
   .card{
   margin: 8px 16px 8px 0;
   width: 185px;
 }
 
+}
+
+@media screen and (min-width:1200px) {
+  .menu__container{
+  width: 1140px;
+ 
+}
+
+.card{
+  margin: 8px 40px 8px 0;
+  width: 200px;
+}
+}
+
+@media screen and (min-width:1400px) {
+  .menu__container{
+  width: 1320px;
+ 
+}
+
+.card{
+    margin: 8px 32px 8px 0;
+    width: 250px;
+}
 }
 </style>
 

@@ -3,9 +3,11 @@
     <h1>Cart</h1>
     <button v-if="$store.state.valueGeneralOrder" @click="clear()" class="btn__clear">Clear Cart</button>
     <div :class="['cart-order__conteiner',{'order':$store.state.valueGeneralOrder}]">
+      
       <div v-if="!$store.state.valueGeneralOrder" class="cart-order__content">
         <span >Cart is Empty!</span>
       </div>
+      
       <div class="menu__container">
         <app-menu-card
         :displayBorder="true"
@@ -16,8 +18,9 @@
       </div>
      
     </div>
+
      <div v-if="$store.state.valueGeneralOrder" class="cart__section">
-        <strong> Total {{total}}</strong> 
+        <strong> Total: {{total}}</strong> 
         <div class="section__button">
           <app-button-order/>
         </div>
@@ -61,6 +64,12 @@ export default {
 
 
 <style scoped>
+
+strong{
+  margin: 8px 8px 12px;
+  font-weight: bolder;
+}
+
 span{
   font-size: 32px;
   font-weight: 700;
@@ -76,7 +85,7 @@ h1{
 }
 
 .cart-order__conteiner{
-  height: 310px;
+  height: 400px;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -88,6 +97,7 @@ h1{
 .order{
   justify-content: space-between;
   border-top: 1px solid #000;
+  height: 310px;
 }
 
 .cart-order__content{
