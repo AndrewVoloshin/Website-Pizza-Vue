@@ -65,6 +65,27 @@ export default {
 
 <style scoped>
 
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 strong{
   margin: 8px 8px 12px;
   font-weight: bolder;
@@ -123,6 +144,10 @@ h1{
   margin: 8px;
   line-height: 1.5;
   transition: .15s ease-in-out;
+}
+
+.btn__clear:hover{
+  filter: drop-shadow(0 0 8px #ff1111);
 }
 
 .section__button{

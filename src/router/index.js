@@ -4,6 +4,7 @@ import HomeView from '@/views/HomeView.vue'
 import Menu from '@/views/MenuView.vue'
 import Login from '@/views/LogInView.vue'
 import Register from '@/views/RegisterView.vue'
+import Order from '@/views/OrderView.vue'
 
 
 Vue.use(VueRouter)
@@ -18,6 +19,11 @@ const routes = [
     path: '/menu',
     // name: 'menu',
     component: Menu
+  },
+  {
+    path: '/order',
+    // name: 'menu',
+    component: Order
   },
   {
     path: '/login',
