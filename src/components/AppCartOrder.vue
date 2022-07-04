@@ -10,6 +10,7 @@
       
       <div class="menu__container">
         <app-menu-card
+        class="app-card"
         :displayBorder="true"
         :notDiplayImg="true"
         :item="item" 
@@ -117,7 +118,6 @@ h1{
 
 .order{
   justify-content: space-between;
-  border-top: 1px solid #000;
   height: 310px;
 }
 
@@ -128,6 +128,11 @@ h1{
 .menu__container{
   width: 100%;
   overflow-y: auto;
+}
+.app-card:first-child{
+  border-top: 1px solid black;
+  border-radius: 0px;
+  margin-top: 0;
 }
 
 .btn__clear{

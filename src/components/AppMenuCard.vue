@@ -1,9 +1,9 @@
 <template>
-  <div class="card" @mouseover="isMouseOver=true" @mouseleave="isMouseOver=false" >
-    <div class="card__img" v-if="!notDiplayImg">
+  <div :class="['card',{'card_mode-order':ismodeOrder}]" @mouseover="isMouseOver=true" @mouseleave="isMouseOver=false" >
+    <div :class="['card__img',{'card__img_mode-order':ismodeOrder}]" v-if="!notDiplayImg">
       <img :class="{'card_hover':isMouseOver}" :src='item.img' :alt="item.imgSrc"/>
     </div>
-    <div :class="['card__content', {'card__border':displayBorder}]" >
+    <div :class="['card__content', {'card__border':displayBorder, 'card__content_mode-order':ismodeOrder}]" >
       <div class="card__title"><strong>{{item.name}}</strong></div>
         <span class="card__description">{{item.description}}</span>
       <div class="card__info">
@@ -20,7 +20,7 @@
  
 <script>
 export default {
-  props:['item','notDiplayImg','displayBorder'],
+  props:['item','notDiplayImg','displayBorder','ismodeOrder'],
   data(){
     return{
       isMouseOver:false,
@@ -33,6 +33,10 @@ export default {
       this.item.order +=val
       this.$store.state.valueGeneralOrder +=val
       this.$store.state.isActiveButtonOrder = this.$store.state.valueGeneralOrder>0 ? true : false
+      if( this.$store.state.valueGeneralOrder ===0){
+        this.$router.push('/menu')
+      }
+      
     }
   }
 }
@@ -49,16 +53,27 @@ export default {
   width: 100%;
 }
 
+.card_mode-order{
+  flex-direction: row;
+  margin: 8px 0 12px;
+}
+
 .card_hover{
   transform:scale(1.2);
 }
 
 .card__img{
   position:relative;
-  width: auto;
+   width: auto;
   height: 150px;
   overflow:hidden;
 }
+
+.card__img_mode-order{
+  width: 200px;
+  height: auto;
+}
+
 
 .card__border{
   border-bottom:1px solid black;
@@ -80,6 +95,10 @@ img{
   justify-content: space-between;
   background: #ddd;
   padding: 0 16px;
+}
+
+.card__content_mode-order{
+  padding: 12px 8px 12px 20px;
 }
 
 .card__description{
