@@ -11,7 +11,7 @@ export default new Vuex.Store({
     isActiveButtonOrder:false,
     valueGeneralOrder:0,
     mainOrderList:[],
-  },
+  },                    
   getters: {
     computedOrder(state){
       let localOrderList=[]
@@ -21,7 +21,9 @@ export default new Vuex.Store({
         })
       }
       return  localOrderList
-    }
+    },
+
+
   },
   mutations: {
   },

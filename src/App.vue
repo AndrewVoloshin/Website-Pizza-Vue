@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <app-overlay/>
     <app-header/>
     <app-sidebar/>
     <router-view/>
@@ -10,7 +9,6 @@
 
 <script>
 import AppHeader from '@/components/AppHeader.vue'
-import AppOverlay from '@/components/AppOverlay.vue'
 import AppSidebar from '@/components/AppSidebar.vue'
 import AppFooter from '@/components/AppFooter.vue'
 
@@ -18,7 +16,6 @@ export default {
   name: 'HomeView',
   components: {
     AppHeader,
-    AppOverlay,
     AppSidebar,
     AppFooter
 },

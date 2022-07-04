@@ -1,8 +1,7 @@
 <template>
   <div class="menu" >
     <div class="menu__container">
-      <h1 class="menu__title"> <strong>menu</strong></h1>
-      <div class="menu__line"></div>
+      <app-title :titleText="'menu'" class="title" />
       <div class="menu__content">
         <div class="menu__section1">
           <app-menu-title :title="'Best Sellers'"/>
@@ -60,12 +59,14 @@ import AppMenuCard from '@/components/AppMenuCard.vue'
 import AppMenuTitle from '@/components/AppMenuTitle.vue'
 import AppButtonOrder from '@/components/AppButtonOrder.vue'
 import AppCardOrder from '@/components/AppCartOrder.vue'
+import AppTitle from '@/components/AppTitle.vue'
+
 export default {
   components:{
     AppMenuCard,
     AppMenuTitle,
     AppButtonOrder,
-    AppCardOrder
+    AppCardOrder,AppTitle
   },
   computed:{
     bestSellers(){
@@ -128,16 +129,8 @@ export default {
   padding:0 8px;
 }
 
-.menu__title{
-  text-transform: uppercase;
-  font-weight:300;
-  margin: 0;
-}
-
-.menu__line{
-  height: 2px;
-  background: #000;
-  margin: 4px 0 24px ;
+.title{
+  margin-bottom: 24px;
 }
 
 .menu__section2{
@@ -174,7 +167,6 @@ export default {
   }
 }
 
-
 @media screen and ( min-width:992px){
  .menu__container{
     width: 960px;
@@ -183,7 +175,6 @@ export default {
   .menu__section1{
     flex: 0 0 auto;
     width:66%;
-    
   }
 
   .menu__section2{
@@ -193,34 +184,31 @@ export default {
   }
 
   .card{
-  margin: 8px 16px 8px 0;
-  width: 185px;
-}
-
+    margin: 8px 16px 8px 0;
+    width: 185px;
+  }
 }
 
 @media screen and (min-width:1200px) {
   .menu__container{
-  width: 1140px;
- 
-}
+   width: 1140px;
+  }
 
-.card{
-  margin: 8px 40px 8px 0;
-  width: 200px;
-}
+  .card{
+    margin: 8px 40px 8px 0;
+    width: 200px;
+  }
 }
 
 @media screen and (min-width:1400px) {
   .menu__container{
-  width: 1320px;
- 
-}
+    width: 1320px;
+  }
 
-.card{
+  .card{
     margin: 8px 32px 8px 0;
     width: 250px;
-}
+  }
 }
 </style>
 
