@@ -73,11 +73,12 @@ strong{
   display: flex;
   justify-content: center;
   margin-top: 56px;
-  padding:0 16px;
 }
 
 .order__container{
   width: 100%;
+  padding:0 16px;
+
 }
 
 .order__title{
@@ -95,6 +96,13 @@ strong{
   transition: .15s ease-in-out;
   text-transform: uppercase;
 }
+
+.order__button:hover{
+  background-color: #5a2ff3;
+  filter: drop-shadow(0 0 8px #724cf9);
+}
+
+
 
 .order__text{
   display: block;

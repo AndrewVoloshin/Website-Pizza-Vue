@@ -160,6 +160,12 @@
     text-transform: uppercase;
 }
 
+@media screen and (min-width: 576px){
+  .footer__container{
+    width:540px;
+  }
+}
+
 @media screen and (min-width:768px){
   .footer__container{
     width:720px;

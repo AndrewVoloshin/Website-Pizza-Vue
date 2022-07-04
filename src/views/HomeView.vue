@@ -100,7 +100,6 @@ export default {
  
 }
 
-
 @media screen and (min-width: 768px){
   .home__container{
     width: 720px;

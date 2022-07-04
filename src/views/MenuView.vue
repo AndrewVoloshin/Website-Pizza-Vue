@@ -107,12 +107,13 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 56px;
-  padding: 0 16px;
 }
 
 .menu__container{
   width: 100%;
   height: 100%;
+  padding: 0 16px;
+
 }
 .menu__content{
   display:flex;
@@ -120,7 +121,6 @@ export default {
 }
 .menu__section1{
   flex: 0 0 100%;
-  padding:0 8px;
 }
 
 .menu__section2{
@@ -150,10 +150,15 @@ export default {
   width: 100%;
 }
 
+@media screen and (min-width: 576px){
+  .menu__container{
+    width:540px;
+  }
+}
 
 @media screen and ( min-width:768px){
   .menu__container{
-    width: 688px;
+    width: 720px;
   }
   
   .content__section{

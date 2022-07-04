@@ -141,7 +141,7 @@ img{
 
 
 
-@media screen and(min-width: 576px){
+@media screen and (min-width: 576px){
   .header__container{
     width:540px;
   }
