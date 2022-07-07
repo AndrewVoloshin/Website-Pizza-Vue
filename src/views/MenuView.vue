@@ -4,6 +4,7 @@
       <app-title :titleText="'menu'" class="title" />
       <div class="menu__content">
         <div class="menu__section1">
+          <app-preloader-menu/>
           <app-menu-title :title="'Best Sellers'"/>
           <div class="content__section">
             <app-menu-card
@@ -60,13 +61,15 @@ import AppMenuTitle from '@/components/AppMenuTitle.vue'
 import AppButtonOrder from '@/components/AppButtonOrder.vue'
 import AppCardOrder from '@/components/AppCartOrder.vue'
 import AppTitle from '@/components/AppTitle.vue'
+import AppPreloaderMenu from '@/components/AppPreloaderMenu.vue'
 
 export default {
   components:{
     AppMenuCard,
     AppMenuTitle,
     AppButtonOrder,
-    AppCardOrder,AppTitle
+    AppCardOrder,AppTitle,
+    AppPreloaderMenu
   },
   computed:{
     bestSellers(){

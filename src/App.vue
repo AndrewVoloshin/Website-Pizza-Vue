@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <app-preloader/>
     <app-header/>
     <app-sidebar/>
     <router-view/>
@@ -11,13 +12,16 @@
 import AppHeader from '@/components/AppHeader.vue'
 import AppSidebar from '@/components/AppSidebar.vue'
 import AppFooter from '@/components/AppFooter.vue'
+import AppPreloader from '@/components/AppPreloader.vue'
+
 
 export default {
   name: 'HomeView',
   components: {
     AppHeader,
     AppSidebar,
-    AppFooter
+    AppFooter,
+    AppPreloader
 },
 }
 </script>
