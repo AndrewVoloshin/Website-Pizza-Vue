@@ -37,7 +37,6 @@ export default{
         return acc+ current.order*current.cost
       },0)
     }
-
   },
 
   data(){
