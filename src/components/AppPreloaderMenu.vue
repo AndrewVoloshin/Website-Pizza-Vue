@@ -11,7 +11,7 @@
 </template>
 
 <script>
-export default {
+export default {  
 
 }
 </script>
@@ -28,7 +28,7 @@ export default {
 .preloader-menu__container{
   width:103px;
   animation: rotate 2s linear infinite ;
-  animation-play-state: paused;
+  /* animation-play-state: paused; */
   height: 103px;
   overflow: hidden;
 }
@@ -43,17 +43,16 @@ export default {
   position:relative;
   top:-51px; left:-10px;
   margin-right:2px;
-  animation: move1 0.2s linear 1;
-  animation-direction: alternate ;
+  animation: move1 0.1s linear 1;
+  /* animation-direction: alternate ; */
   animation-delay: 1000ms;
   animation-fill-mode: forwards;
-
  /* animation-play-state: paused; */
 }
 .num2{
   top:-51px; right:-10px;
   transform: rotate(90deg);
-  animation: move2 0.2s linear 1 ;
+  animation: move2 0.1s linear 1 ;
   animation-delay: 1400ms;
   animation-direction: alternate ;
      /* animation-play-state: paused; */
@@ -66,7 +65,7 @@ export default {
   top: -4px;
   transform: rotate(-90deg);
   margin-right:2px;
-  animation: move3 0.2s linear 1 ;
+  animation: move3 0.1s linear 1 ;
   animation-delay: 300ms;
   animation-direction: alternate ;
   /* animation-play-state: paused; */
@@ -78,7 +77,7 @@ export default {
   
   top: -4px;
   transform: rotate(180deg);
-  animation: move4 0.2s linear 1 ;
+  animation: move4 0.1s linear 1 ;
   animation-delay: 200ms;
   animation-direction: alternate ;
        /* animation-play-state: paused; */
