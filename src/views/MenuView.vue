@@ -3,7 +3,8 @@
     <div class="menu__container">
       <app-title :titleText="'menu'" class="title" />
       <div class="menu__content">
-        <div class="menu__section1">
+        <app-preloader-menu v-if="preload" />
+        <div class="menu__section1" >
           <app-menu-title :title="'Best Sellers'"/>
           <div class="content__section">
             <app-menu-card
@@ -60,13 +61,15 @@ import AppMenuTitle from '@/components/AppMenuTitle.vue'
 import AppButtonOrder from '@/components/AppButtonOrder.vue'
 import AppCardOrder from '@/components/AppCartOrder.vue'
 import AppTitle from '@/components/AppTitle.vue'
+import AppPreloaderMenu from '@/components/AppPreloaderMenu.vue'
 
 export default {
   components:{
     AppMenuCard,
     AppMenuTitle,
     AppButtonOrder,
-    AppCardOrder,AppTitle
+    AppCardOrder,AppTitle,
+    AppPreloaderMenu
   },
   computed:{
     bestSellers(){
@@ -84,6 +87,7 @@ export default {
   data(){
     return{
       isButtonOn: false,
+      isPreload:true,
     }
   },
    created() {
@@ -97,7 +101,19 @@ export default {
     onResize() {
       this.isButtonOn = window.innerWidth < 992;
     }
+  },
+
+
+  mounted(){
+    // this.onload()
+    document.onreadystatechange = () => {
+  if (document.readyState == "complete") {
+    console.log('Page completed with image and files!')
   }
+
+    }
+  }
+
 }
 
 </script>
