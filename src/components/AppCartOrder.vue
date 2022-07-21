@@ -94,12 +94,13 @@ strong{
 
 span{
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 h1{
   font-size: calc(1.375rem + 1.5vw);
   margin: 8px;
+  font-weight: 800;
 
 }
 .cart-order{

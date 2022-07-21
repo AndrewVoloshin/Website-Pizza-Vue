@@ -3,54 +3,57 @@
     <div class="menu__container">
       <app-title :titleText="'menu'" class="title" />
       <div class="menu__content">
-        <app-preloader-menu v-if="preload" />
         <div class="menu__section1" >
-          <app-menu-title :title="'Best Sellers'"/>
-          <div class="content__section">
-            <app-menu-card
-            :item="item" 
-            v-for="(item,index) in bestSellers"
-            :key="index+'bestSellers'"/>
+          <app-preloader-menu class="preloader-menu" v-if="isPreload" />
+          <div :class="['section1__content',{'visible':!isPreload}]">
+            <app-menu-title :title="'Best Sellers'"/>
+            <div class="content__item">
+              <app-menu-card
+              :item="item" 
+              v-for="(item,index) in bestSellers"
+              :key="index+'bestSellers'"/>
+            </div>
+            <app-menu-title :title="'Veg Pizzas'"/>
+            <div class="content__item">
+              <app-menu-card
+              :item="item"  
+              v-for="(item,index) in $store.state.menu.vegPizzas"
+              :key="index+'vegPizzas'"/>
+            </div>
+            <app-menu-title :title="'Non Veg Pizzas'"/>
+            <div class="content__item">
+              <app-menu-card 
+              :item="item"  
+              v-for="(item,index) in $store.state.menu.nonVegPizzas" 
+              :key="index+'vegPizzas'"/>
+            </div>
+            <app-menu-title :title="'Side Dishes'"/>
+            <div class="content__item">
+              <app-menu-card 
+              :item="item"  
+              v-for="(item,index) in $store.state.menu.sideDishes" 
+              :key="index+'vegPizzas'"/>
+            </div>
+            <app-menu-title :title="'Desserts'"/>
+            <div class="content__item">
+              <app-menu-card 
+              :img="true"  
+              :item="item" 
+              v-for="(item,index) in $store.state.menu.desserts" 
+              :key="index+'vegPizzas'"/>
+            </div>
+            <div v-if="$store.state.isActiveButtonOrder && isButtonOn" class="section__button">
+              <app-button-order  />
+            </div>
           </div>
-          <app-menu-title :title="'Veg Pizzas'"/>
-          <div class="content__section">
-            <app-menu-card
-            :item="item"  
-            v-for="(item,index) in $store.state.menu.vegPizzas"
-            :key="index+'vegPizzas'"/>
-          </div>
-          <app-menu-title :title="'Non Veg Pizzas'"/>
-          <div class="content__section">
-            <app-menu-card 
-            :item="item"  
-            v-for="(item,index) in $store.state.menu.nonVegPizzas" 
-            :key="index+'vegPizzas'"/>
-          </div>
-          <app-menu-title :title="'Side Dishes'"/>
-          <div class="content__section">
-            <app-menu-card 
-            :item="item"  
-            v-for="(item,index) in $store.state.menu.sideDishes" 
-            :key="index+'vegPizzas'"/>
-          </div>
-          <app-menu-title :title="'Desserts'"/>
-          <div class="content__section">
-            <app-menu-card 
-            :img="true"  
-            :item="item" 
-            v-for="(item,index) in $store.state.menu.desserts" 
-            :key="index+'vegPizzas'"/>
-          </div>
-          <div v-if="$store.state.isActiveButtonOrder && isButtonOn" class="section__button">
-            <app-button-order  />
-          </div>
-
         </div>
+
         <div class="menu__section2">
           <div class="menu__order">
             <app-card-order/>
           </div>
         </div>
+
       </div>
     </div>
   </div> 
@@ -105,15 +108,14 @@ export default {
 
 
   mounted(){
-    // this.onload()
-    document.onreadystatechange = () => {
-  if (document.readyState == "complete") {
-    console.log('Page completed with image and files!')
+    // document.onreadystatechange = () => {
+    //   if (document.readyState == "complete") {
+    //     console.log('loaded');
+    //     this.isPreload = false
+    //   }
+    // }
+    setTimeout(()=>this.isPreload = false,2000)
   }
-
-    }
-  }
-
 }
 
 </script>
@@ -134,9 +136,21 @@ export default {
 .menu__content{
   display:flex;
   margin-bottom: 24px;
+  position: relative;
 }
+
+
 .menu__section1{
   flex: 0 0 100%;
+}
+
+.preloader-menu{
+  margin-top: 24px;
+}
+
+.section1__content{
+  visibility: hidden;
+  height: 50vh;
 }
 
 .menu__section2{
@@ -166,6 +180,11 @@ export default {
   width: 100%;
 }
 
+.visible{
+  visibility: visible;
+  height: auto;
+}
+
 @media screen and (min-width: 576px){
   .menu__container{
     width:540px;
@@ -177,7 +196,7 @@ export default {
     width: 720px;
   }
   
-  .content__section{
+  .content__item{
     display:flex;
     flex-wrap: wrap;
   }
@@ -193,7 +212,7 @@ export default {
     width: 960px;
   }
 
-  .menu__section1{
+  .menu__section1 {
     flex: 0 0 auto;
     width:66%;
   }
