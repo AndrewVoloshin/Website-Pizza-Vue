@@ -23,7 +23,7 @@ export default{
 .title__section1{
   margin: 0 8px 8px 0;
   white-space: nowrap ;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
 }
 
