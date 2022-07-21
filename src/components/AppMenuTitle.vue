@@ -25,6 +25,8 @@ export default{
   white-space: nowrap ;
   font-weight: 600;
   line-height: 1.2;
+  font-size: calc(1.325rem + .9vw);
+  
 }
 
 .title__section2{

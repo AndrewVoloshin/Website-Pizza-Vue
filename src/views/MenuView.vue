@@ -142,6 +142,7 @@ export default {
 
 .menu__section1{
   flex: 0 0 100%;
+  padding-right:12px;
 }
 
 .preloader-menu{
@@ -156,7 +157,7 @@ export default {
 .menu__section2{
   position: sticky;
   top:64px;
-  padding:0 8px;
+  padding-left:12px;
 }
 
 .title{
@@ -213,7 +214,7 @@ export default {
   }
 
   .menu__section1 {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     width:66%;
   }
 
