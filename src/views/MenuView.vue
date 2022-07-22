@@ -186,6 +186,11 @@ export default {
   height: auto;
 }
 
+  .card{
+    margin: 8px 32px 8px 0;
+    width: 250px;
+  }
+
 @media screen and (min-width: 576px){
   .menu__container{
     width:540px;
@@ -246,10 +251,7 @@ export default {
     width: 1320px;
   }
 
-  .card{
-    margin: 8px 32px 8px 0;
-    width: 250px;
-  }
+
 }
 </style>
 
