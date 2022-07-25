@@ -250,6 +250,8 @@ export default {
     margin: 8px 32px 8px 0;
     width: 250px;
   }
+
+
 }
 </style>
 

@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     isActiveSidebar: false,
     isActiveButtonOrder:false,
+    isRegistered:false,
     valueGeneralOrder:0,
     mainOrderList:[],
   },                    

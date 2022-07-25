@@ -20,6 +20,7 @@
   text-transform: uppercase;
   font-weight:300;
   margin: 0;
+  font-size: calc(1.375rem + 1.5vw);
 }
 
 .menu__line{
