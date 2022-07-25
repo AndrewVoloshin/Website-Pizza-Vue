@@ -33,8 +33,6 @@
         :class="['content__btn',{'disabled':$v.$invalid}]"
         >Register</button>
       </form>
-      <p> {{$v}} </p>
-
       <p class="sub-content"> <strong>OR</strong> </p>
       <div class="sub-button">
         <button type="button" class="login-with-google-btn">
@@ -67,7 +65,7 @@ export default {
       this.email='',
       this.password='',
       this.repeatPassword=''
-      $store.state.isRegistered= true
+      this.$store.state.isRegistered= true
       this.$router.push('/menu')
     }
   },
@@ -127,6 +125,18 @@ body {
   line-height: 1.5;
   transition: .1s;
 }
+.content__input:hover{
+  background-color: #bbb;
+}
+
+.content__input:focus{
+  background-color: #888;
+  outline:none;
+}
+
+.content__input:focus::placeholder{
+  color:white;
+}
 
 .password{
   margin: 12px 0 12px 0 ;
@@ -153,7 +163,11 @@ body {
   line-height: 1.5;
   cursor: pointer;
   transition: .15s ease-in-out;
+}
 
+.content__btn:hover{
+  background-color: #5a2ff3;
+  filter: drop-shadow(0 0 8px #724cf9);
 }
 
 .sub-content{
@@ -206,13 +220,6 @@ strong{
   0 2px 4px rgba(0, 0, 0, .25),
   0 0 0 3px #c8dafc;
 }
-  
-/* .login-with-google-btn:disabled {
-  filter: grayscale(100%);
-  background-color: #ebebeb;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
-  cursor: not-allowed;
-} */
 
 .alert{
   color: #721c24;
@@ -221,7 +228,7 @@ strong{
   padding: 1rem 1rem;
   margin-bottom: 1rem;
   border-radius: 0.25rem;
-  margin-top: 1.5rem;
+  margin-top: 12px;
 }
 
 .disabled{
