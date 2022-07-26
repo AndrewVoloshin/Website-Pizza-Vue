@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     isActiveSidebar: false,
     isActiveButtonOrder:false,
-    isRegistered:false,
+    isRegistered:true,
     valueGeneralOrder:0,
     mainOrderList:[],
   },                    
@@ -23,7 +23,6 @@ export default new Vuex.Store({
       }
       return  localOrderList
     },
-
 
   },
   mutations: {

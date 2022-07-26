@@ -13,8 +13,10 @@
     <div class="header__nav">
       <router-link class="nav__link" tag="a" to="/" exact active-class="nav__link_on" >Home</router-link>
       <router-link class="nav__link" tag="a" to="/menu" exact active-class="nav__link_on">Menu</router-link>
-      <router-link class="nav__link" tag="a" to="/login" exact active-class="nav__link_on">Log In</router-link>
-      <router-link class="nav__link" tag="a" to="/register" exact active-class="nav__link_on">Register</router-link>
+      <router-link v-if="!$store.state.isRegistered" class="nav__link" tag="a" to="/login" exact active-class="nav__link_on">Log In</router-link>
+      <router-link v-if="$store.state.isRegistered" class="nav__link" tag="a" to="/orders" exact active-class="nav__link_on">Orders</router-link>
+      <router-link v-if="!$store.state.isRegistered" class="nav__link" tag="a" to="/register" exact active-class="nav__link_on">Register</router-link>
+      <button v-if="$store.state.isRegistered" @click="logOut" class="nav__link button__link" >Log Out</button>
     </div>
   </div>
   </div>
@@ -26,6 +28,12 @@ export default {
   data(){
     return{
       
+    }
+  },
+  methods:{
+    logOut(){
+      this.$store.state.isRegistered =false
+      this.$router.push('/')
     }
   }
 }
@@ -134,6 +142,13 @@ img{
 
 .nav__link:hover:after{
   width:100%;
+}
+
+.button__link{
+  border:none;
+  font-family: var(--font-sans-serif);
+  font-size: 1rem;
+  padding: 0;
 }
 
 

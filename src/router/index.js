@@ -5,6 +5,7 @@ import Menu from '@/views/MenuView.vue'
 import Login from '@/views/LogInView.vue'
 import Register from '@/views/RegisterView.vue'
 import Order from '@/views/OrderView.vue'
+import Orders from '@/views/OrdersView.vue'
 
 
 Vue.use(VueRouter)
@@ -34,6 +35,11 @@ const routes = [
     path: '/register',
     // name: 'menu',
     component: Register
+  },
+  {
+    path: '/orders',
+    // name: 'menu',
+    component: Orders
   },
   //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
 ]
