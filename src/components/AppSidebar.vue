@@ -12,10 +12,12 @@
     </a>
     <nav>
       <ul class="sidebar__menu">
-        <router-link class="menu__item" tag="li" to="/" exact active-class="menu__item_on" >Home</router-link>
-        <router-link class="menu__item" tag="li" to="/menu" exact active-class="menu__item_on">Menu</router-link>
-        <router-link class="menu__item" tag="li" to="/login" exact active-class="menu__item_on">Log In</router-link>
-        <router-link class="menu__item" tag="li" to="/register" exact active-class="menu__item_on">Register</router-link>
+      <router-link class="menu__item" tag="a" to="/" exact active-class="nav__link_on" >Home</router-link>
+      <router-link class="menu__item" tag="a" to="/menu" exact active-class="nav__link_on">Menu</router-link>
+      <router-link v-if="!isRegistered" class="menu__item" tag="a" to="/login" exact active-class="nav__link_on">Log In</router-link>
+      <router-link v-if="isRegistered" class="menu__item" tag="a" to="/orders" exact active-class="nav__link_on">Orders</router-link>
+      <router-link v-if="!isRegistered" class="menu__item" tag="a" to="/register" exact active-class="nav__link_on">Register</router-link>
+      <button v-if="isRegistered" @click="logOut" class="menu__item button__link" >Log Out</button>
       </ul>
     </nav>
   </div>
@@ -24,9 +26,19 @@
 
 <script>
 export default {
-   computed:{
+  computed:{
     isActiveSidebar(){
       return this.$store.state.isActiveSidebar
+    },
+    isRegistered(){
+      return this.$store.state.isRegistered
+    }
+  },
+  methods:{
+    logOut(){
+      this.$store.state.isRegistered =false
+      if( this.$router.currentRoute.path === '/' ) return
+      this.$router.push('/')
     }
   }
 }
@@ -114,6 +126,13 @@ img{
 }
 .menu__item:hover:after{
   width:100%;
+}
+.button__link{
+  border:none;
+  font-family: var(--font-sans-serif);
+  font-size: 1rem;
+  padding: 0;
+  background: white;
 }
 
 @media screen and ( max-width:576px){
