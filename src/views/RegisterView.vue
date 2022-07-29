@@ -67,6 +67,7 @@ export default {
       this.repeatPassword=''
       this.$store.state.isRegistered= true
       this.$router.push('/menu')
+      return true
     }
   },
  

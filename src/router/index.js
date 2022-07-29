@@ -6,7 +6,7 @@ import Login from '@/views/LogInView.vue'
 import Register from '@/views/RegisterView.vue'
 import Order from '@/views/OrderView.vue'
 import Orders from '@/views/OrdersView.vue'
-
+import Checkout from '@/views/CheckoutView.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +40,11 @@ const routes = [
     path: '/orders',
     // name: 'menu',
     component: Orders
+  },
+  {
+    path: '/checkout',
+    // name: 'menu',
+    component: Checkout
   },
   //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
 ]
