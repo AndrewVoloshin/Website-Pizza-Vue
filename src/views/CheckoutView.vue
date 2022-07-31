@@ -2,51 +2,118 @@
   <div class="checkout">
     <div class="checkout__container">
       <app-title :titleText="'checkout'" class="title" />
-      <div class="checkout__subtitle">
-        <h2 class="subtitle">Location</h2>
-        <div class="hr"></div>
+      <div class="checkout__section">
+        <div class="checkout__subtitle">
+          <h2 class="subtitle">Location</h2>
+          <div class="hr"></div>
+        </div>
+        <div>
+          <strong>Address:</strong>
+        </div>
+        <div v-if="$v.$invalid && !isInput && !$v.$anyDirty" class="checkout__error">
+          <strong>No Address Found</strong> 
+        </div>
+        <p class="line">{{line1}}</p>
+        <p class="line">{{line2}}</p>
+        <p class="line">{{line3}}</p>
+        <button v-if="!isInput && !$v.$anyDirty" @click="isInput=true"  class="checkout__btn address">Add Address</button>
+        <button v-if="!isInput && $v.$anyDirty" @click="isInput=true" class="checkout__btn address">Update Address</button>
+        <div class="form" v-if="isInput">
+          <input v-model.trim="buildingNumber" type="text" class="checkout__input" placeholder="Building Number"/>
+          <input v-model.trim="streetName" type="text" class="checkout__input" placeholder="Street Name"/>
+          <input v-model.trim="city" type="text" class="checkout__input" placeholder="City"/>
+          <input v-model.trim="state" type="text" class="checkout__input" placeholder="State"/>
+          <input v-model.trim="country" type="text" class="checkout__input" placeholder="Country"/>
+          <input v-model.trim="pinCode" type="text" class="checkout__input" placeholder="Pin Code"/>
+          <div  v-if="$v.$anyError" class="checkout__error">
+            <strong>Please Enter a valid address</strong> 
+          </div>
+          <button @click="isInput=false" class="checkout__btn cancel">Cancel</button>
+          <button  @click="update" class="checkout__btn update">Update</button>
+        </div>
       </div>
-      <div>
-      <strong>Address:</strong>
-      </div>
-      <input v-model.trim="$v.name.$model" type="text" class="checkout__input" placeholder="Street Name"/>
-      <input type="text" class="checkout__input" placeholder="City"/>
-      <input type="text" class="checkout__input" placeholder="State"/>
-      <input type="text" class="checkout__input" placeholder="Country"/>
-      <input type="text" class="checkout__input" placeholder="Pin Code"/>
-      <div class="checkout__error">
-        <strong>Please Enter a valid address</strong>
-      </div>
-      <button class="checkout__btn cancel">Cancel</button>
-      <button class="checkout__btn update">Update</button>
-      <div class="checkout__subtitle">
-        <h2 class="subtitle">Mode of Payment</h2>
-        <div class="hr"></div>
+
+      
+
+      <div class="checkout__section">
+        <div class="checkout__subtitle">
+          <h2 class="subtitle">Mode of Payment</h2>
+          <div class="hr"></div>
+        </div>
+      
+      
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import { required } from 'vuelidate/lib/validators'
+import { required } from 'vuelidate/lib/validators'
 import AppTitle from '@/components/AppTitle.vue'
 
 export default {
   components: { AppTitle },
   data() {
     return {
-      
+      buildingNumber:'',
+      streetName:'',
+      city:'',
+      state:'',
+      country:'',
+      pinCode:'',
+      line1:'',
+      line2:'',
+      line3:'',
+      isInput:false,
     }
   },
-  //   validations: {
-  //   name: {
-  //     required,
-  //     minLength: minLength(4)
-  //   },
-  //   age: {
-  //     between: between(20, 30)
-  //   }
-  // }
+  watch:{
+    line1(){
+      return this.line1
+    },
+      line2(){
+      return this.line2
+    },
+      line3(){
+      return this.line3
+    }
+  },
+  methods:{
+    update(){
+      if(this.$v.$invalid) return
+      console.log(this.$v);
+      this.line1= `${this.buildingNumber} ${this.streetName}`
+      this.line2= `${this.city}, ${this.state}, ${this.country}`
+      this.line3= `PIN: ${this.pinCode}`
+      this.$v.$touch()
+      this.isInput=false
+    },
+    cancel(){
+
+    }
+  },
+
+  validations: {
+    buildingNumber:{
+      required,
+    },
+    streetName: {
+      required,
+    },
+    city: {
+      required,
+    },
+    state: {
+      required,
+    },
+    country: {
+      required,
+    },
+    pinCode: {
+      required,
+    },
+  }
 }
 </script>
 
@@ -74,14 +141,14 @@ h1{
   padding:0 16px;
 }
 
-.title{
-  margin-bottom: 24px;
-}
-
 .checkout__subtitle{
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
+}
+
+.checkout__section{
+  margin: 24px 0;
 }
 .subtitle{
   font-size: calc(1.325rem + .9vw);
@@ -96,6 +163,11 @@ h1{
   height: 1px;
   flex:1 0 basic;
   background: #888;
+}
+
+.line{
+  margin: 0;
+  padding: 0;
 }
 .checkout__input{
     background-color: #ddd;
@@ -126,11 +198,11 @@ h1{
   margin-top: 12px;
 }
 .checkout__input:last-of-type{
-  margin-bottom: 0px;
+  margin-bottom: 12px;
 }
 .checkout__error{
   padding: 16px;
-  margin: 24px 0 16px 0;
+  margin: 12px 0 16px 0;
   color: #721c24;
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
@@ -156,6 +228,11 @@ h1{
 
 .update{
   background-color: #724cf9;
+}
+
+.address{
+  background-color: #724cf9;
+  margin: 16px 0;
 }
 
 
