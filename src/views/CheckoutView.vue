@@ -2,7 +2,7 @@
   <div class="checkout">
     <div class="checkout__container">
       <app-title :titleText="'checkout'" class="title" />
-      <div class="checkout__section">
+      <div  class="checkout__section">
         <div class="checkout__subtitle">
           <h2 class="subtitle">Location</h2>
           <div class="hr"></div>
@@ -10,39 +10,63 @@
         <div>
           <strong>Address:</strong>
         </div>
-        <div v-if="$v.$invalid && !isInput && !$v.$anyDirty" class="checkout__error">
+        <div v-if="$v.address.$invalid && !$v.address.$anyDirty && !isInput" class="checkout__error">
           <strong>No Address Found</strong> 
         </div>
-        <p class="line">{{line1}}</p>
-        <p class="line">{{line2}}</p>
-        <p class="line">{{line3}}</p>
-        <button v-if="!isInput && !$v.$anyDirty" @click="isInput=true"  class="checkout__btn address">Add Address</button>
-        <button v-if="!isInput && $v.$anyDirty" @click="isInput=true" class="checkout__btn address">Update Address</button>
+        <p class="line">{{addressStr1}}</p>
+        <p class="line">{{addressStr2}}</p>
+        <p class="line">{{addressStr3}}</p>
+        <button v-if="!isInput && !$v.address.$anyDirty" @click="isInput=true"  class="checkout__btn address">Add Address</button>
+        <button v-if="!isInput && $v.address.$anyDirty" @click="isInput=true" class="checkout__btn address">Update Address</button>
         <div class="form" v-if="isInput">
-          <input v-model.trim="buildingNumber" type="text" class="checkout__input" placeholder="Building Number"/>
-          <input v-model.trim="streetName" type="text" class="checkout__input" placeholder="Street Name"/>
-          <input v-model.trim="city" type="text" class="checkout__input" placeholder="City"/>
-          <input v-model.trim="state" type="text" class="checkout__input" placeholder="State"/>
-          <input v-model.trim="country" type="text" class="checkout__input" placeholder="Country"/>
-          <input v-model.trim="pinCode" type="text" class="checkout__input" placeholder="Pin Code"/>
-          <div  v-if="$v.$anyError" class="checkout__error">
+
+          <input v-model.trim="address.buildingNumber" type="text" class="checkout__input" placeholder="Building Number"/>
+          <input v-model.trim="address.streetName" type="text" class="checkout__input" placeholder="Street Name"/>
+          <input v-model.trim="address.city" type="text" class="checkout__input" placeholder="City"/>
+          <input v-model.trim="address.state" type="text" class="checkout__input" placeholder="State"/>
+          <input v-model.trim="address.country" type="text" class="checkout__input" placeholder="Country"/>
+          <input v-model.trim="address.pinCode" type="text" class="checkout__input" placeholder="Pin Code"/>
+          <div  v-if="$v.address.$anyError" class="checkout__error">
             <strong>Please Enter a valid address</strong> 
           </div>
-          <button @click="isInput=false" class="checkout__btn cancel">Cancel</button>
+          <button @click="cancel" class="checkout__btn cancel">Cancel</button>
           <button  @click="update" class="checkout__btn update">Update</button>
         </div>
       </div>
-
-      
-
       <div class="checkout__section">
         <div class="checkout__subtitle">
           <h2 class="subtitle">Mode of Payment</h2>
           <div class="hr"></div>
         </div>
-      
-      
+        <form class="checkout__form">
+          <div class="form__content">
+            <input v-model="payment" class="checkout__radio" type="radio" id="cash" name="ModeOfPayment" value="Cash on Delivery">
+            <label for="cash">Cash on Delivery</label><br>
+          </div>
+          <div class="form__content disabled">
+            <input v-model="payment" disabled class="checkout__radio" type="radio" id="wallet" name="ModeOfPayment" value="Wallet">
+            <label for="wallet ">Wallet</label><br>
+          </div>
+          <div class="form__content disabled">
+            <input v-model="payment" disabled class="checkout__radio " type="radio" id="credit" name="ModeOfPayment" value="Credit / Debit Card">
+            <label for="credit">Credit / Debit Card</label> <br/>
+          </div>
+          <div class="form__content disabled">
+            <input v-model="payment" disabled class="checkout__radio" type="radio" id="netBanking" name="ModeOfPayment" value="Net Banking">
+            <label for="netBanking">Net Banking</label> <br/>
+          </div>
+          <!-- {{$v.address}} -->
+          <div  v-if="$v.$anyError && $v.$anyDirty" class="checkout__error">
+            <strong v-if="$v.address.$invalid && !$v.payment.required">Please make sure that all fields are filled</strong> 
+            <strong v-else-if="$v.address.$invalid && $v.payment.required">Please fill in the address field</strong> 
+            <strong v-else-if="!$v.address.$invalid && !$v.payment.required">Please select the mode of payment field</strong> 
 
+            <!-- Your yummy pizza will arrive at your doorstep soon! :) -->
+          </div>
+        
+          <!-- {{$v}} -->
+          <button class="checkout__btn order" @click.prevent="placeOrder" >Place Order</button>
+        </form>
       </div>
     </div>
   </div>
@@ -56,63 +80,83 @@ export default {
   components: { AppTitle },
   data() {
     return {
-      buildingNumber:'',
-      streetName:'',
-      city:'',
-      state:'',
-      country:'',
-      pinCode:'',
-      line1:'',
-      line2:'',
-      line3:'',
+      address:{
+        buildingNumber:'',
+        streetName:'',
+        city:'',
+        state:'',
+        country:'',
+        pinCode:'',
+      },
+      updateAddress:{},
+      addressStr1:'',
+      addressStr2:'',
+      addressStr3:'',
       isInput:false,
+      payment:'',
     }
   },
   watch:{
-    line1(){
-      return this.line1
-    },
-      line2(){
-      return this.line2
-    },
-      line3(){
-      return this.line3
-    }
+    // line1(){
+    //   return this.line1
+    // },
+    //   line2(){
+    //   return this.line2
+    // },
+    //   line3(){
+    //   return this.line3
+    // }
   },
   methods:{
     update(){
-      if(this.$v.$invalid) return
+      this.$v.address.$touch()
+      console.log('Here');
+      if(this.$v.address.$invalid) return
       console.log(this.$v);
-      this.line1= `${this.buildingNumber} ${this.streetName}`
-      this.line2= `${this.city}, ${this.state}, ${this.country}`
-      this.line3= `PIN: ${this.pinCode}`
-      this.$v.$touch()
+      this.addressStr1= `${this.address.buildingNumber} ${this.address.streetName}`
+      this.addressStr2= `${this.address.city}, ${this.address.state}, ${this.address.country}`
+      this.addressStr3= `PIN: ${this.address.pinCode}`
+      this.isInput=false
+      Object.assign(this.updateAddress, this.address)
+      console.log(this.updateAddress,'this.updateAddress');
+    },
+
+    cancel(){
+      Object.assign(this.address, this.updateAddress)
       this.isInput=false
     },
-    cancel(){
 
+    placeOrder(){
+      this.$v.payment.$touch()
+      if(this.$v.$invalid) return
+      console.log('Your yummy pizza will arrive at your doorstep soon! :)');
     }
   },
 
   validations: {
-    buildingNumber:{
-      required,
+    address:{
+      buildingNumber:{
+        required,
+      },
+      streetName: {
+        required,
+      },
+      city: {
+        required,
+      },
+      state: {
+        required,
+      },
+      country: {
+        required,
+      },
+      pinCode: {
+        required,
+      }
     },
-    streetName: {
-      required,
-    },
-    city: {
-      required,
-    },
-    state: {
-      required,
-    },
-    country: {
-      required,
-    },
-    pinCode: {
-      required,
-    },
+    payment: {
+      required
+    }
   }
 }
 </script>
@@ -226,6 +270,12 @@ h1{
   margin-right: 16px;
 }
 
+.cancel:hover{
+  background-color: #666 !important;
+  filter: drop-shadow(0 0 8px #666) !important;
+}
+
+
 .update{
   background-color: #724cf9;
 }
@@ -233,6 +283,49 @@ h1{
 .address{
   background-color: #724cf9;
   margin: 16px 0;
+}
+
+.checkout__form{
+  margin-top: 16px;
+}
+
+.checkout__radio{
+  margin: 8px 0;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;  
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.checkout__radio:checked{
+    border: 5px solid #0d6efd;
+}
+.checkout__radio:focus{
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.25);
+}
+
+label{
+  position: relative;
+  top: -11px;
+  padding-left: 8px;
+}
+
+.order{
+  background-color: #724cf9;
+  margin: 16px 0;
+}
+
+.checkout__btn:hover{
+  background-color: #5a2ff3;
+  filter: drop-shadow(0 0 8px #724cf9);
+}
+
+.disabled{
+  opacity:0.5;
 }
 
 
