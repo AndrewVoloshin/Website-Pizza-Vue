@@ -13,7 +13,8 @@
       </div>
       <div class="order__content">
         <strong class="order__text">Total Prise: {{total}} </strong>
-        <router-link class="order__button" tag="button" to="/">checkout</router-link>
+        <router-link v-if="!$store.state.isRegistered" class="order__button" tag="button" to="/login">checkout</router-link>
+        <router-link v-if="$store.state.isRegistered" class="order__button" tag="button" to="/checkout">checkout</router-link>
       </div>
     </div>
  </div>
