@@ -127,7 +127,7 @@ export default {
     placeOrder(){
       this.$v.$touch()
       if(this.$v.$invalid) return
-      this.$router.push('/users/eduardo')
+      this.$router.push('/orderPlaced')
       console.log('Your yummy pizza will arrive at your doorstep soon! :)');
     }
   },
