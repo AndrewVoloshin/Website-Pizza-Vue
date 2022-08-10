@@ -10,14 +10,14 @@
         <div>
           <strong>Address:</strong>
         </div>
-        <div v-if="$v.address.$invalid && !$v.address.$anyDirty && !isInput" class="checkout__error">
+        <div v-if="$v.address.$invalid && !isInput" class="checkout__error address__add">
           <strong>No Address Found</strong> 
         </div>
         <p class="line">{{addressStr1}}</p>
         <p class="line">{{addressStr2}}</p>
         <p class="line">{{addressStr3}}</p>
-        <button v-if="!isInput && !$v.address.$anyDirty" @click="isInput=true"  class="checkout__btn address">Add Address</button>
-        <button v-if="!isInput && $v.address.$anyDirty" @click="isInput=true" class="checkout__btn address">Update Address</button>
+        <button v-if="!isInput && $v.address.$invalid" @click="isInput=true"  class="checkout__btn address">Add Address</button>
+        <button v-if="!isInput && !$v.address.$invalid" @click="isInput=true" class="checkout__btn address">Update Address</button>
         <div class="form" v-if="isInput">
 
           <input v-model.trim="address.buildingNumber" type="text" class="checkout__input" placeholder="Building Number"/>
@@ -26,7 +26,7 @@
           <input v-model.trim="address.state" type="text" class="checkout__input" placeholder="State"/>
           <input v-model.trim="address.country" type="text" class="checkout__input" placeholder="Country"/>
           <input v-model.trim="address.pinCode" type="text" class="checkout__input" placeholder="Pin Code"/>
-          <div  v-if="$v.address.$anyError" class="checkout__error">
+          <div  v-if="$v.address.$anyError" class="checkout__error address__valid">
             <strong>Please Enter a valid address</strong> 
           </div>
           <button @click="cancel" class="checkout__btn cancel">Cancel</button>
@@ -56,7 +56,7 @@
             <label for="netBanking">Net Banking</label> <br/>
           </div>
           <!-- {{$v.address}} -->
-          <div  v-if="$v.$anyError && $v.$anyDirty" class="checkout__error">
+          <div  v-if="$v.$anyError && $v.$anyDirty" class="checkout__error order__error">
             <strong v-if="$v.address.$invalid && !$v.payment.required">Please make sure that all fields are filled</strong> 
             <strong v-else-if="$v.address.$invalid && $v.payment.required">Please fill in the address field</strong> 
             <strong v-else-if="!$v.address.$invalid && !$v.payment.required">Please select the mode of payment field</strong> 
@@ -110,25 +110,24 @@ export default {
   methods:{
     update(){
       this.$v.address.$touch()
-      console.log('Here');
       if(this.$v.address.$invalid) return
-      console.log(this.$v);
       this.addressStr1= `${this.address.buildingNumber} ${this.address.streetName}`
       this.addressStr2= `${this.address.city}, ${this.address.state}, ${this.address.country}`
       this.addressStr3= `PIN: ${this.address.pinCode}`
       this.isInput=false
       Object.assign(this.updateAddress, this.address)
-      console.log(this.updateAddress,'this.updateAddress');
     },
 
     cancel(){
       Object.assign(this.address, this.updateAddress)
       this.isInput=false
+      // if(this.$v.address.$anyDirty)
     },
 
     placeOrder(){
-      this.$v.payment.$touch()
+      this.$v.$touch()
       if(this.$v.$invalid) return
+      this.$router.push('/users/eduardo')
       console.log('Your yummy pizza will arrive at your doorstep soon! :)');
     }
   },
@@ -178,6 +177,8 @@ h1{
   justify-content: center;
   margin-top: 56px;
 }
+
+
 
 .checkout__container{
   width: 100%;
@@ -246,12 +247,26 @@ h1{
 }
 .checkout__error{
   padding: 16px;
-  margin: 12px 0 16px 0;
   color: #721c24;
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
   border-radius: 0.25rem;
 }
+
+.address__add{
+  margin: 24px 0 16px 0;
+}
+
+.address__valid{
+  margin: 12px 0 16px 0;
+}
+
+.order__error{
+  margin: 24px 0 0px 0;
+ 
+}
+
+
 
 .checkout__btn{
   cursor: pointer;
@@ -286,16 +301,22 @@ h1{
 }
 
 .checkout__form{
-  margin-top: 16px;
+  margin-top: 24px;
+}
+
+.form__content{
+  margin: 8px 0;
 }
 
 .checkout__radio{
-  margin: 8px 0;
+  position: relative;
+  top: 3px;
   appearance: none;
   width: 20px;
   height: 20px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 50%;  
+  margin: 0;
   width: 1.25rem;
   height: 1.25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -309,8 +330,7 @@ h1{
 }
 
 label{
-  position: relative;
-  top: -11px;
+
   padding-left: 8px;
 }
 
