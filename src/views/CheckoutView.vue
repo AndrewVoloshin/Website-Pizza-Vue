@@ -100,12 +100,6 @@ export default {
       },
     }
   },
-  // computed:{
-  //   order(){
-  //     return  this.$store.getters.computedOrder
-  //   },
-  // },
-
   methods:{
     update(){
       this.$v.address.$touch()
@@ -141,15 +135,15 @@ export default {
         return acc + current.order*current.cost
       }),0)
 
-      console.log(this.currentOrder.total,'this.currentOrder.total');
-
-
-
       this.$store.state.ordersHistory.push(this.currentOrder)
-      console.log(this.$store.state.ordersHistory,'this.$store.state.ordersHistory');
     
       this.$store.commit('cleanOrder')
       this.$store.state.isActiveButtonOrder=false
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   },
 
@@ -202,6 +196,10 @@ h2{
 .checkout__container{
   width: 100%;
   padding:0 16px;
+}
+
+.order__placed{
+  min-height: 100vh;
 }
 
 .order__text{

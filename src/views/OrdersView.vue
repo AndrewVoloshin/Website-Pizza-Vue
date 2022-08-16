@@ -42,12 +42,6 @@ import AppAddress from '@/components/AppAddress.vue';
 
 export default {
   components: { AppTitle,AppAddress },
-  data() {
-    return {
-      
-    }
-  },
-
 }
 </script>
 
@@ -70,7 +64,6 @@ strong{
 
 .orders__container{
   width: 100%;
-  /* height: 100vh; */
   height: 100%;
   padding:0 16px;
 }
@@ -95,9 +88,9 @@ strong{
 
 table {
   width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 16px;
-    text-align: left;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  text-align: left;
     
 }
 
@@ -106,15 +99,11 @@ th, td {
 }
 
 thead tr{
-  /* border-bottom: 1px solid #ddd; */
   border-bottom: 1px solid black;
-  /* border-bottom-width: 1px; */
 }
 
 tbody tr{
   border-bottom: 1px solid #ddd;
-  /* border-bottom: 1px solid black; */
-  /* border-bottom-width: 1px; */
 }
 tbody tr:hover{
   background: rgba(0, 0, 0, 0.075);

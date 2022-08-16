@@ -13,45 +13,40 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    // name: 'home',
     component: HomeView
   },
   {
     path: '/menu',
-    // name: 'menu',
     component: Menu
   },
   {
     path: '/order',
-    // name: 'menu',
     component: Order
   },
   {
     path: '/login',
-    // name: 'menu',
     component: Login
   },
   {
     path: '/register',
-    // name: 'menu',
     component: Register
   },
   {
     path: '/orders',
-    // name: 'menu',
     component: Orders
   },
   {
     path: '/checkout',
-    // name: 'menu',
     component: Checkout
   },
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
 ]
 
 const router = new VueRouter({
   routes,
-  mode:'history'
+  mode:'history',
+  scrollBehavior() {
+    return { x: 0, y: 0 }
+  }
 })
 
 export default router
