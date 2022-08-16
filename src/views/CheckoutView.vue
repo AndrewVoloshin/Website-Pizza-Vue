@@ -13,17 +13,12 @@
             <h2 class="subtitle">Location</h2>
             <div class="hr"></div>
           </div>
-          <div>
-            <strong>Address:</strong>
-          </div>
+          <app-address :address="address" />
           <div v-if="$v.address.$invalid && !isInput" class="checkout__error address__add">
             <strong>No Address Found</strong> 
           </div>
-          <p class="line">{{addressStr1}}</p>
-          <p class="line">{{addressStr2}}</p>
-          <p class="line">{{addressStr3}}</p>
-          <button v-if="!isInput && $v.address.$invalid" @click="isInput=true"  class="checkout__btn address">Add Address</button>
-          <button v-if="!isInput && !$v.address.$invalid" @click="isInput=true" class="checkout__btn address">Update Address</button>
+          <button v-if="!isInput && $v.address.$invalid" @click="isInput=true"  class="checkout__btn address__btn">Add Address</button>
+          <button v-if="!isInput && !$v.address.$invalid" @click="isInput=true" class="checkout__btn address__btn">Update Address</button>
           <div class="form" v-if="isInput">
             <input v-model.trim="address.buildingNumber" type="text" class="checkout__input" placeholder="Building Number"/>
             <input v-model.trim="address.streetName" type="text" class="checkout__input" placeholder="Street Name"/>
@@ -76,12 +71,14 @@
 <script>
 import { required } from 'vuelidate/lib/validators'
 import AppTitle from '@/components/AppTitle.vue'
+import AppAddress from '@/components/AppAddress.vue'
 
 export default {
-  components: { AppTitle },
+  components: { AppTitle,AppAddress },
   data() {
     return {
       orderPlaced:false,
+      isInput:false,
       address:{
         buildingNumber:'',
         streetName:'',
@@ -89,22 +86,33 @@ export default {
         state:'',
         country:'',
         pinCode:'',
+        str1:'',
+        str2:'',
+        str3:'',
       },
       updateAddress:{},
-      addressStr1:'',
-      addressStr2:'',
-      addressStr3:'',
-      isInput:false,
       payment:'',
+      currentOrder:{
+        time:'',
+        address:{},
+        orderProduct:[],
+        total:'',
+      },
     }
   },
+  // computed:{
+  //   order(){
+  //     return  this.$store.getters.computedOrder
+  //   },
+  // },
+
   methods:{
     update(){
       this.$v.address.$touch()
       if(this.$v.address.$invalid) return
-      this.addressStr1= `${this.address.buildingNumber} ${this.address.streetName}`
-      this.addressStr2= `${this.address.city}, ${this.address.state}, ${this.address.country}`
-      this.addressStr3= `PIN: ${this.address.pinCode}`
+      this.address.str1= `${this.address.buildingNumber} ${this.address.streetName}`
+      this.address.str2= `${this.address.city}, ${this.address.state}, ${this.address.country}`
+      this.address.str3= `PIN: ${this.address.pinCode}`
       this.isInput=false
       Object.assign(this.updateAddress, this.address)
     },
@@ -118,6 +126,30 @@ export default {
       this.$v.$touch()
       if(this.$v.$invalid) return
       this.orderPlaced= true
+      Object.assign(this.currentOrder.address, this.updateAddress)
+
+      let date = new Date
+      this.currentOrder.time = date.toDateString()
+
+      this.$store.getters.computedOrder.forEach(element => {
+        let localObj={}
+        Object.assign(localObj, element)
+        this.currentOrder.orderProduct.push(localObj)
+      });
+
+      this.currentOrder.total= this.currentOrder.orderProduct.reduce(((acc,current)=>{
+        return acc + current.order*current.cost
+      }),0)
+
+      console.log(this.currentOrder.total,'this.currentOrder.total');
+
+
+
+      this.$store.state.ordersHistory.push(this.currentOrder)
+      console.log(this.$store.state.ordersHistory,'this.$store.state.ordersHistory');
+    
+      this.$store.commit('cleanOrder')
+      this.$store.state.isActiveButtonOrder=false
     }
   },
 
@@ -281,7 +313,7 @@ h2{
   background-color: #724cf9;
 }
 
-.address{
+.address__btn{
   background-color: #724cf9;
   margin: 16px 0;
 }
