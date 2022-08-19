@@ -22,10 +22,18 @@
           
             <h2 class="footer__title">social media</h2>
             <div class="footer__link">
-              <a class="link-item facebook__wrap  "><font-awesome-icon icon="fa-brands fa-facebook-f" class="facebook" /></a>
-              <a class="link-item twitter__wrap"><font-awesome-icon icon="fa-brands fa-twitter" class="twitter" /></a>
-              <a class="link-item instagram__wrap"> <font-awesome-icon icon="fa-brands fa-instagram" class="instagram" /> </a>
-              <a class="link-item youtube__wrap"><font-awesome-icon icon="fa-brands fa-youtube" class="youtube" /> </a>
+              <a class="link-item facebook__wrap" href="https://www.facebook.com/" target="_blank">
+                <font-awesome-icon icon="fa-brands fa-facebook-f" class="facebook" />
+              </a>
+              <a class="link-item twitter__wrap" href="https://twitter.com/" target="_blank">
+                <font-awesome-icon icon="fa-brands fa-twitter" class="twitter" />
+              </a>
+              <a class="link-item instagram__wrap" href="https://www.instagram.com/" target="_blank">
+                <font-awesome-icon icon="fa-brands fa-instagram" class="instagram" />
+              </a>
+              <a class="link-item youtube__wrap" href="https://www.youtube.com/" target="_blank">
+                <font-awesome-icon icon="fa-brands fa-youtube" class="youtube" />
+              </a>
             </div>
               
         </div>

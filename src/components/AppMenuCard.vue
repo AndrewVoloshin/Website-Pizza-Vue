@@ -7,7 +7,7 @@
       <div class="card__title"><strong>{{item.name}}</strong></div>
         <span class="card__description">{{item.description}}</span>
       <div class="card__info">
-        <span class="info__item"><strong>$</strong>{{item.cost}}</span>
+        <span class="info__item">{{item.cost}}</span>
         <div class="info__action">
           <button class="info__btn" @click="changeOrder(-1)" ><i class="minus"></i></button>
           <span class="info__result"> <strong> {{item.order}} </strong> </span>
@@ -118,7 +118,13 @@ img{
   padding-bottom: 8px;
 }
 
+.info__action{
+  display: flex;
+  align-items: center;
+}
+
 .info__btn{
+  position:relative;
   height: 28px;
   width: 28px;
   border-radius: 2px;
@@ -134,13 +140,35 @@ img{
   color: #fff;
 }
 
+.info__item:after{
+ content:'$';
+ font-size: 1rem;
+ margin-left: 3px;
+}
+
+.info__result{
+ margin: 4px 2px;
+}
+
 
 .plus:after{
   content:'+';
+  position:absolute;
+  font-weight: bold;
+  font-size: 25px;
+  left:6px;
+  top:0px;
+
 }
 
 .minus:after{
   content:'-';
+  position:absolute;
+  font-weight: bold;
+  font-size: 25px;
+  left:10px;
+  top:-2px;
+
 }
 
 </style>
