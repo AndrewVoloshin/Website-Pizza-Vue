@@ -7,7 +7,7 @@
           <ul class="footer__list">
             <router-link class="list__link" tag="li" to="">about us</router-link>
             <router-link class="list__link" tag="li" to="">faq</router-link>
-            <router-link class="list__link" tag="li" to="">contact us</router-link>
+             <router-link class="list__link" tag="li" to="">contact us</router-link>
           </ul>
         </div>
         <div class="footer__item2">
@@ -21,14 +21,13 @@
         <div class="footer__item3">
           
             <h2 class="footer__title">social media</h2>
-            <!-- <font-awesome-icon icon="fa-brands fa-facebook-f" /> -->
             <div class="footer__link">
-              <i class="link__facebook"></i>
+              <a class="link-item facebook__wrap  "><font-awesome-icon icon="fa-brands fa-facebook-f" class="facebook" /></a>
+              <a class="link-item twitter__wrap"><font-awesome-icon icon="fa-brands fa-twitter" class="twitter" /></a>
+              <a class="link-item instagram__wrap"> <font-awesome-icon icon="fa-brands fa-instagram" class="instagram" /> </a>
+              <a class="link-item youtube__wrap"><font-awesome-icon icon="fa-brands fa-youtube" class="youtube" /> </a>
             </div>
-              <i class="link-item"></i>
-              <i class="link-item"></i>
-              <i class="link-item"></i>
-          
+              
         </div>
       </div>
       <div class="footer__bottom">
@@ -70,10 +69,11 @@
   margin: 24px 0;
 }
 .footer__item3{
-  flex:0 0 100%;
   display: flex;
-  justify-content: center;
-  height: 170px;
+  flex:0 0 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   padding: 0 12px;
   margin: 24px 0;
 }
@@ -121,33 +121,10 @@
 }
 
 .footer__link{
-  height: 36px;
-  width: 36px;
-  border-radius: 50%;
-  margin: 12px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: .1s;
-}
-
-.link__facebook{
-  display: inline-block;
-  color: #3b5998;
-  font: normal normal normal 14px/1 FontAwesome;
-}
-
-.link__facebook:after{
-  content:"\f09a"
-}
-
-.footer__item3{
- display: flex;
- justify-content: center;
-}
-
-.footer__item3 h2{
-  text-align: center;
 }
 
 .footer__bottom{
@@ -155,9 +132,81 @@
   margin-bottom: 8px;
 }
 
-.bottom__content{
-    font-weight: 500;
-    text-transform: uppercase;
+
+.link-item{
+  position: relative;
+  padding: 10px;
+  height: 36px;
+  width: 36px;
+  margin: 12px 20px;
+  border-radius: 50%;
+  transition: .1s;
+}
+
+.facebook__wrap{
+  color: #3b5998;
+}
+.facebook__wrap:hover{
+  color:white;
+  background: #3b5998;
+  filter: drop-shadow(0 0 8px #3b5998);
+  transform: scale(1.2);
+}
+.facebook{
+  position: absolute;
+  top: 10px;
+  left: 13px;
+}
+
+.twitter__wrap{
+  color: #00acee;
+}
+.twitter__wrap:hover{
+  color:white;
+  background: #00acee;
+  filter: drop-shadow(0 0 8px #00acee);
+  transform: scale(1.2);
+}
+
+.twitter{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.instagram__wrap{
+  color: #dd2a7b;
+}
+.instagram__wrap:hover{
+  color:white;
+  background: #f09433; 
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: drop-shadow(0 0 8px #bc1888 );
+  transform: scale(1.2);
+}
+
+.instagram{
+  position: absolute;
+  top: 10px;
+  left: 11px;
+}
+
+.youtube__wrap{
+  color:red;
+}
+.youtube__wrap:hover{
+  color:white;
+  background: red; 
+  filter: drop-shadow(0 0 8px red );
+  transform: scale(1.2);
+}
+
+.youtube{
+  position: absolute;
+  top: 10px;
+  left: 9px;
 }
 
 @media screen and (min-width: 576px){
