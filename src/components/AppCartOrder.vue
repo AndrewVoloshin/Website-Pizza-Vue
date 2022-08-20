@@ -17,11 +17,9 @@
         v-for="(item,index) in order" 
         :key="index+'order'" />
       </div>
-     
     </div>
-
      <div v-if="$store.state.valueGeneralOrder" class="cart__section">
-        <strong> Total: {{total}}</strong> 
+        <strong class="total"> Total: {{total}}</strong> 
         <div class="section__button">
           <app-button-order/>
         </div>
@@ -168,5 +166,10 @@ h1{
   flex-direction: column;
 }
 
+.total:after{
+ content:'$';
+ font-size: 1rem;
+ margin-left: 3px;
+}
 </style>
 
