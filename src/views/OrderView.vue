@@ -60,7 +60,6 @@ export default{
   }
 
 }
-
 </script>
 
 <style scoped>
@@ -102,11 +101,14 @@ strong{
   filter: drop-shadow(0 0 8px #724cf9);
 }
 
-
-
 .order__text{
   display: block;
   margin: 16px 0;
+}
+
+.order__text:after{
+ content:'$';
+ font-size: 1rem;
 }
 
 @media screen and (min-width:576px) {

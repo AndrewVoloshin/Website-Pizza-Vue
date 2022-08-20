@@ -29,7 +29,7 @@
               </tr>
             </tbody>
           </table>
-          <strong>Total Price: </strong> {{order.total}}
+          <strong class="total">Total Price: {{order.total}} </strong> 
         </div>
       </div>
     </div>
@@ -64,7 +64,7 @@ strong{
 
 .orders__container{
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   padding:0 16px;
 }
 
@@ -109,6 +109,10 @@ tbody tr:hover{
   background: rgba(0, 0, 0, 0.075);
 }
 
+.total:after{
+ content:'$';
+ font-size: 1rem;
+}
 
 @media screen and (min-width: 576px){
   .orders__container{

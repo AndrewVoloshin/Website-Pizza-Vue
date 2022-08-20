@@ -53,13 +53,14 @@ export default {
   },
   methods:{
     onSubmit(event){
-       this.$v.$touch()
-       if(this.$v.$anyError) return event.preventDefault()
+      this.$v.$touch()
+      if(this.$v.$anyError) return event.preventDefault()
       this.email='',
       this.password='',
       this.repeatPassword=''
       this.$store.state.isRegistered= true
       this.$router.push('/menu')
+      if(this.$store.getters.computedOrder.length) this.$router.push('/checkout')
       return true
     }
   },
