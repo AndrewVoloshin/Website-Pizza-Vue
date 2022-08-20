@@ -20,6 +20,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # если вы публикуете по адресу https://andrewvoloshin.github.io/Website-on-Vue
-git push -f git@github.com:andrewvoloshin/Website-on-Vue.git master:gh-pages
+git push -f git@github.com:andrewvoloshin/Website-on-Vue.git master:main
 
 cd -
