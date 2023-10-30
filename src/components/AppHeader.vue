@@ -15,7 +15,7 @@
         <router-link
           class="nav__link"
           tag="a"
-          to="/Website-on-Vue"
+          to="/Website-Pizza-Vue"
           exact
           active-class="nav__link_on"
           >Home</router-link
@@ -23,7 +23,7 @@
         <router-link
           class="nav__link"
           tag="a"
-          to="/menu"
+          to="/Website-Pizza-Vue/menu"
           exact
           active-class="nav__link_on"
           >Menu</router-link

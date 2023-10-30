@@ -12,11 +12,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/Website-on-Vue',
+    path: '/Website-Pizza-Vue',
     component: HomeView
   },
   {
-    path: '/menu',
+    path: '/Website-Pizza-Vue/menu',
     component: Menu
   },
   {
