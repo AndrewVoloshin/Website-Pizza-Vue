@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header__container">
-      <router-link class="header__logo" tag="a" to="/">
+      <router-link class="header__logo" tag="a" to="/Website-Pizza-Vue">
         <img src="@/assets/static/Logo.png" alt="logo" />
       </router-link>
       <div

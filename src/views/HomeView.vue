@@ -7,7 +7,7 @@
      </div>
      <h2  class="home__subtitle">Pizza Man Online Ordering</h2>
      <h1 class="home__title">Your Yummy Pizza Delivered Fast & Fresh</h1>
-     <router-link tag="button" class="home__btn" to="/menu">Order Now</router-link>
+     <router-link tag="button" class="home__btn" to="/Website-Pizza-Vue/menu">Order Now</router-link>
    </div>
   </div>
 </template>
