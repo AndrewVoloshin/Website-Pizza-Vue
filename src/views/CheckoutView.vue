@@ -188,9 +188,10 @@ h2{
 }
 
 .checkout{
-   display: flex;
+  display: flex;
   justify-content: center;
   margin-top: 56px;
+  height: 100vh;
 }
 
 .checkout__container{

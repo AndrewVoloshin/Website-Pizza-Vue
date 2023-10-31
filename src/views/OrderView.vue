@@ -72,6 +72,7 @@ strong{
   display: flex;
   justify-content: center;
   margin-top: 56px;
+  height: 100vh;
 }
 
 .order__container{
