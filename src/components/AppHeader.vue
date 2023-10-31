@@ -81,7 +81,7 @@ export default {
   methods: {
     logOut() {
       this.$store.state.isRegistered = false;
-      this.$router.push("/Website-on-Vue");
+      this.$router.push("/Website-Pizza-Vue");
     },
   },
 };

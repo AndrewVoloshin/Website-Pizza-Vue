@@ -5,6 +5,6 @@ module.exports = defineConfig({
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/Website-on-Vue/'
+    ? '/Website-Pizza-Vue/'
     : '/'
 }

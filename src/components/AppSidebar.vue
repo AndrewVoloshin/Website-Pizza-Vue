@@ -84,7 +84,7 @@ export default {
     logOut() {
       this.$store.state.isRegistered = false;
       if (this.$router.currentRoute.path === "/") return;
-      this.$router.push("/Website-on-Vue");
+      this.$router.push("/Website-Pizza-Vue");
     },
   },
 };
