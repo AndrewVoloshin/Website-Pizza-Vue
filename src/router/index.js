@@ -20,23 +20,23 @@ const routes = [
     component: Menu
   },
   {
-    path: '/order',
+    path: '/Website-Pizza-Vue/order',
     component: Order
   },
   {
-    path: '/login',
+    path: '/Website-Pizza-Vue/login',
     component: Login
   },
   {
-    path: '/register',
+    path: '/Website-Pizza-Vue/register',
     component: Register
   },
   {
-    path: '/orders',
+    path: '/Website-Pizza-Vue/orders',
     component: Orders
   },
   {
-    path: '/checkout',
+    path: '/Website-Pizza-Vue/checkout',
     component: Checkout
   },
 ]

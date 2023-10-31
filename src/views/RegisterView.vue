@@ -25,7 +25,7 @@
           <strong v-else-if="!$v.password.sameAsPassword">Password and Password Confirmation must match</strong>
         </div>
         <p class="content__text"> Already registered? 
-          <router-link class="content__link" tag="a" to="/login">Login</router-link>
+          <router-link class="content__link" tag="a" to="/Website-Pizza-Vue/login">Login</router-link>
         </p>
         <button
         type="submit"
@@ -66,7 +66,7 @@ export default {
       this.password='',
       this.repeatPassword=''
       this.$store.state.isRegistered= true
-      this.$router.push('/menu')
+      this.$router.push('/Website-Pizza-Vue/menu')
       return true
     }
   },

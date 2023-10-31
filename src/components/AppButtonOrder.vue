@@ -1,5 +1,5 @@
 <template>
-    <router-link tag="button" to="/order" class="button-order" >GO TO CART</router-link>
+    <router-link tag="button" to="/Website-Pizza-Vue/order" class="button-order" >GO TO CART</router-link>
 </template>
 
 <style scoped>

@@ -32,7 +32,7 @@
           v-if="!isRegistered"
           class="nav__link"
           tag="a"
-          to="/login"
+          to="/Website-Pizza-Vue/login"
           exact
           active-class="nav__link_on"
           >Log In</router-link
@@ -41,7 +41,7 @@
           v-if="isRegistered"
           class="nav__link"
           tag="a"
-          to="/orders"
+          to="/Website-Pizza-Vue/orders"
           exact
           active-class="nav__link_on"
           >Orders</router-link
@@ -50,7 +50,7 @@
           v-if="!isRegistered"
           class="nav__link"
           tag="a"
-          to="/register"
+          to="/Website-Pizza-Vue/register"
           exact
           active-class="nav__link_on"
           >Register</router-link

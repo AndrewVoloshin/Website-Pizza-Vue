@@ -59,8 +59,8 @@ export default {
       this.password='',
       this.repeatPassword=''
       this.$store.state.isRegistered= true
-      this.$router.push('/menu')
-      if(this.$store.getters.computedOrder.length) this.$router.push('/checkout')
+      this.$router.push('/Website-Pizza-Vue/menu')
+      if(this.$store.getters.computedOrder.length) this.$router.push('/Website-Pizza-Vue/checkout')
       return true
     }
   },

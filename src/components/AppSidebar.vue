@@ -17,7 +17,7 @@
           <router-link
             class="menu__item"
             tag="a"
-            to="/"
+            to="/Website-Pizza-Vue"
             exact
             active-class="nav__link_on"
             >Home</router-link
@@ -25,7 +25,7 @@
           <router-link
             class="menu__item"
             tag="a"
-            to="/menu"
+            to="/Website-Pizza-Vue/menu"
             exact
             active-class="nav__link_on"
             >Menu</router-link
@@ -34,7 +34,7 @@
             v-if="!isRegistered"
             class="menu__item"
             tag="a"
-            to="/login"
+            to="/Website-Pizza-Vue/login"
             exact
             active-class="nav__link_on"
             >Log In</router-link
@@ -43,7 +43,7 @@
             v-if="isRegistered"
             class="menu__item"
             tag="a"
-            to="/orders"
+            to="/Website-Pizza-Vue/orders"
             exact
             active-class="nav__link_on"
             >Orders</router-link
@@ -52,7 +52,7 @@
             v-if="!isRegistered"
             class="menu__item"
             tag="a"
-            to="/register"
+            to="/Website-Pizza-Vue/register"
             exact
             active-class="nav__link_on"
             >Register</router-link

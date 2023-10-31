@@ -34,7 +34,7 @@ export default {
       this.$store.state.valueGeneralOrder +=val
       this.$store.state.isActiveButtonOrder = this.$store.state.valueGeneralOrder>0 ? true : false
       if( this.$store.state.valueGeneralOrder ===0){
-        this.$router.push('/menu')
+        this.$router.push('/Website-Pizza-Vue/menu')
       }
       
     }
