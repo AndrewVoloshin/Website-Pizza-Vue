@@ -23,7 +23,7 @@
         <p class="content__text"> Not yet registered?
           <router-link class="content__link"
                        tag="a"
-                       to="/register">Register</router-link>
+                       to="/Website-Pizza-Vue/register">Register</router-link>
         </p>
         <button type="submit"
                 class="content__btn">Login</button>
