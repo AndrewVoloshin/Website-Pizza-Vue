@@ -1,67 +1,47 @@
 <template>
-  <div
-    class="sidebar"
-    @click="$store.state.isActiveSidebar = false"
-    :class="{ sidebar_on: isActiveSidebar }"
-  >
-    <div
-      class="sidebar__conteiner"
-      :class="{ sidebar_on: isActiveSidebar }"
-      @click="$store.state.isActiveSidebar = false"
-    >
+  <div class="sidebar"
+       @click="$store.state.isActiveSidebar = false"
+       :class="{ sidebar_on: isActiveSidebar }">
+    <div class="sidebar__conteiner"
+         :class="{ sidebar_on: isActiveSidebar }"
+         @click="$store.state.isActiveSidebar = false">
       <a class="sidebar__logo">
-        <img src="@/assets/static/Logo.png" alt="logo" />
+        <img src="@/assets/static/Logo.png"
+             alt="logo" />
       </a>
       <nav>
         <ul class="sidebar__menu">
-          <router-link
-            class="menu__item"
-            tag="a"
-            to="/Website-Pizza-Vue"
-            exact
-            active-class="nav__link_on"
-            >Home</router-link
-          >
-          <router-link
-            class="menu__item"
-            tag="a"
-            to="/Website-Pizza-Vue/menu"
-            exact
-            active-class="nav__link_on"
-            >Menu</router-link
-          >
-          <router-link
-            v-if="!isRegistered"
-            class="menu__item"
-            tag="a"
-            to="/Website-Pizza-Vue/login"
-            exact
-            active-class="nav__link_on"
-            >Log In</router-link
-          >
-          <router-link
-            v-if="isRegistered"
-            class="menu__item"
-            tag="a"
-            to="/Website-Pizza-Vue/orders"
-            exact
-            active-class="nav__link_on"
-            >Orders</router-link
-          >
-          <router-link
-            v-if="!isRegistered"
-            class="menu__item"
-            tag="a"
-            to="/Website-Pizza-Vue/register"
-            exact
-            active-class="nav__link_on"
-            >Register</router-link
-          >
-          <button
-            v-if="isRegistered"
-            @click="logOut"
-            class="menu__item button__link"
-          >
+          <router-link class="menu__item"
+                       tag="a"
+                       to="/Website-Pizza-Vue"
+                       exact
+                       active-class="nav__link_on">Home</router-link>
+          <router-link class="menu__item"
+                       tag="a"
+                       to="/Website-Pizza-Vue/menu"
+                       exact
+                       active-class="nav__link_on">Menu</router-link>
+          <router-link v-if="!isRegistered"
+                       class="menu__item"
+                       tag="a"
+                       to="/Website-Pizza-Vue/login"
+                       exact
+                       active-class="nav__link_on">Log In</router-link>
+          <router-link v-if="isRegistered"
+                       class="menu__item"
+                       tag="a"
+                       to="/Website-Pizza-Vue/orders"
+                       exact
+                       active-class="nav__link_on">Orders</router-link>
+          <router-link v-if="!isRegistered"
+                       class="menu__item"
+                       tag="a"
+                       to="/Website-Pizza-Vue/register"
+                       exact
+                       active-class="nav__link_on">Register</router-link>
+          <button v-if="isRegistered"
+                  @click="logOut"
+                  class="menu__item button__link">
             Log Out
           </button>
         </ul>
@@ -101,9 +81,11 @@ export default {
   background: rgb(0, 0, 0, 0.5);
   z-index: 99;
 }
+
 .sidebar_on {
   visibility: visible;
 }
+
 .sidebar__conteiner {
   width: 40vw;
   height: 100%;
@@ -112,10 +94,12 @@ export default {
   transform: translateX(-100%);
   transition: 0.2s;
 }
+
 .sidebar_on {
   transform: translateX(0);
   transition: 0.2s;
 }
+
 .sidebar__logo {
   position: relative;
   width: 150px;
@@ -131,6 +115,7 @@ img {
   width: 100%;
   height: 100%;
 }
+
 .sidebar__menu {
   display: flex;
   flex-direction: column;
@@ -139,6 +124,7 @@ img {
   padding: 0;
   margin: 0;
 }
+
 .menu__item {
   position: relative;
   text-decoration: none;
@@ -146,10 +132,12 @@ img {
   font-weight: 700;
   color: #724cf9;
 }
+
 .menu__item_on {
   position: relative;
   color: #0041bb;
 }
+
 .menu__item_on:after {
   content: "";
   position: absolute;
@@ -159,6 +147,7 @@ img {
   height: 2px;
   background-color: #0041bb !important;
 }
+
 .menu__item::after {
   position: absolute;
   content: "";
@@ -169,9 +158,11 @@ img {
   background-color: #724cf9;
   transition: width 0.2s;
 }
+
 .menu__item:hover:after {
   width: 100%;
 }
+
 .button__link {
   border: none;
   font-family: var(--font-sans-serif);

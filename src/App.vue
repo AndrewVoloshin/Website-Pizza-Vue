@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <app-preloader/>
-    <app-header/>
-    <app-sidebar/>
-    <router-view/>
-    <app-footer/>
+    <app-preloader />
+    <app-header />
+    <app-sidebar />
+    <router-view />
+    <app-footer />
   </div>
 </template>
 
@@ -22,18 +22,19 @@ export default {
     AppSidebar,
     AppFooter,
     AppPreloader
-},
+  },
 }
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap');
-:root{
-  --font-sans-serif: 'Noto Sans','Roboto', sans-serif;
+
+:root {
+  --font-sans-serif: 'Noto Sans', 'Roboto', sans-serif;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -47,11 +48,11 @@ body {
   background-color: #fff;
 }
 
-strong{
+strong {
   font-weight: 500;
 }
 
-h1{
+h1 {
   font-weight: 500;
   line-height: 1.2
 }

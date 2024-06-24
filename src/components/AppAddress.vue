@@ -1,27 +1,25 @@
 <template>
-    <div class="address" >
-        <strong>Address:</strong>
-        <p class="line">{{address.str1}}</p>
-        <p class="line">{{address.str2}}</p>
-        <p class="line">{{address.str3}}</p>
-    </div>
+  <div class="address">
+    <strong>Address:</strong>
+    <p class="line">{{ address.str1 }}</p>
+    <p class="line">{{ address.str2 }}</p>
+    <p class="line">{{ address.str3 }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-    props:['address'],
+  props: ['address'],
 }
 </script>
 
 <style scoped>
-strong{
+strong {
   font-weight: bolder;
 }
 
-.line{
+.line {
   margin: 0;
   padding: 0;
 }
-
-
 </style>

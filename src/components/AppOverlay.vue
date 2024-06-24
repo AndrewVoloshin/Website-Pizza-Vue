@@ -1,5 +1,5 @@
 <template>
-<div class="overlay"></div>
+  <div class="overlay"></div>
 </template>
 
 <script>
@@ -9,30 +9,31 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (min-width: 576px){
-  .overlay{
+@media screen and (min-width: 576px) {
+  .overlay {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    display:flex;
-    align-items: center ;
+    display: flex;
+    align-items: center;
     justify-content: center;
     background: black;
     z-index: 100;
   }
-  .overlay::after{
-    content:'Please Switch to Portrait Mode';
+
+  .overlay::after {
+    content: 'Please Switch to Portrait Mode';
     color: white;
     font-size: xx-large;
     padding-bottom: 40px;
   }
 }
 
-@media screen and (min-width: 768px){
-  .overlay{
-    display:none;
+@media screen and (min-width: 768px) {
+  .overlay {
+    display: none;
   }
 }
 </style>
