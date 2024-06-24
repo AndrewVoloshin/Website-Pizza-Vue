@@ -1,62 +1,60 @@
 <template>
-  <div class="menu" >
+  <div class="menu">
     <div class="menu__container">
-      <app-title :titleText="'menu'" class="title" />
+      <app-title :titleText="'menu'"
+                 class="title" />
       <div class="menu__content">
-        <div class="menu__section1" >
-          <app-preloader-menu class="preloader-menu" v-if="isPreload" />
-          <div :class="['section1__content',{'visible':!isPreload}]">
-            <app-menu-title :title="'Best Sellers'"/>
+        <div class="menu__section1">
+          <app-preloader-menu class="preloader-menu"
+                              v-if="isPreload" />
+          <div :class="['section1__content', { 'visible': !isPreload }]">
+            <app-menu-title :title="'Best Sellers'" />
             <div class="content__item">
-              <app-menu-card
-              :item="item" 
-              v-for="(item,index) in bestSellers"
-              :key="index+'bestSellers'"/>
+              <app-menu-card :item="item"
+                             v-for="(item, index) in bestSellers"
+                             :key="index + 'bestSellers'" />
             </div>
-            <app-menu-title :title="'Veg Pizzas'"/>
+            <app-menu-title :title="'Veg Pizzas'" />
             <div class="content__item">
-              <app-menu-card
-              :item="item"  
-              v-for="(item,index) in $store.state.menu.vegPizzas"
-              :key="index+'vegPizzas'"/>
+              <app-menu-card :item="item"
+                             v-for="(item, index) in $store.state.menu.vegPizzas"
+                             :key="index + 'vegPizzas'" />
             </div>
-            <app-menu-title :title="'Non Veg Pizzas'"/>
+            <app-menu-title :title="'Non Veg Pizzas'" />
             <div class="content__item">
-              <app-menu-card 
-              :item="item"  
-              v-for="(item,index) in $store.state.menu.nonVegPizzas" 
-              :key="index+'vegPizzas'"/>
+              <app-menu-card :item="item"
+                             v-for="(item, index) in $store.state.menu.nonVegPizzas"
+                             :key="index + 'vegPizzas'" />
             </div>
-            <app-menu-title :title="'Side Dishes'"/>
+            <app-menu-title :title="'Side Dishes'" />
             <div class="content__item">
-              <app-menu-card 
-              :item="item"  
-              v-for="(item,index) in $store.state.menu.sideDishes" 
-              :key="index+'vegPizzas'"/>
+              <app-menu-card :item="item"
+                             v-for="(item, index) in $store.state.menu.sideDishes"
+                             :key="index + 'vegPizzas'" />
             </div>
-            <app-menu-title :title="'Desserts'"/>
+            <app-menu-title :title="'Desserts'" />
             <div class="content__item">
-              <app-menu-card 
-              :img="true"  
-              :item="item" 
-              v-for="(item,index) in $store.state.menu.desserts" 
-              :key="index+'vegPizzas'"/>
+              <app-menu-card :img="true"
+                             :item="item"
+                             v-for="(item, index) in $store.state.menu.desserts"
+                             :key="index + 'vegPizzas'" />
             </div>
-            <div v-if="$store.state.isActiveButtonOrder && isButtonOn" class="section__button">
-              <app-button-order  />
+            <div v-if="$store.state.isActiveButtonOrder && isButtonOn"
+                 class="section__button">
+              <app-button-order />
             </div>
           </div>
         </div>
 
         <div class="menu__section2">
           <div class="menu__order">
-            <app-card-order/>
+            <app-card-order />
           </div>
         </div>
 
       </div>
     </div>
-  </div> 
+  </div>
 </template>
 <script>
 import AppMenuCard from '@/components/AppMenuCard.vue'
@@ -67,37 +65,37 @@ import AppTitle from '@/components/AppTitle.vue'
 import AppPreloaderMenu from '@/components/AppPreloaderMenu.vue'
 
 export default {
-  components:{
+  components: {
     AppMenuCard,
     AppMenuTitle,
     AppButtonOrder,
-    AppCardOrder,AppTitle,
+    AppCardOrder, AppTitle,
     AppPreloaderMenu
   },
-  computed:{
-    bestSellers(){
-      let localBestSellers=[]
-      for(let key in this.$store.state.menu){
-        this.$store.state.menu[key].forEach((elem)=>{
-          if(elem.isBestSellers) localBestSellers.push(elem)
+  computed: {
+    bestSellers() {
+      let localBestSellers = []
+      for (let key in this.$store.state.menu) {
+        this.$store.state.menu[key].forEach((elem) => {
+          if (elem.isBestSellers) localBestSellers.push(elem)
         })
       }
-    return localBestSellers
+      return localBestSellers
     },
-   
+
   },
-  
-  data(){
-    return{
+
+  data() {
+    return {
       isButtonOn: false,
-      isPreload:true,
+      isPreload: true,
     }
   },
-   created() {
+  created() {
     window.addEventListener('resize', this.onResize);
     this.onResize();
   },
-   destroyed() {
+  destroyed() {
     window.removeEventListener('resize', this.onResize)
   },
   methods: {
@@ -107,146 +105,147 @@ export default {
   },
 
 
-  mounted(){
+  mounted() {
     // document.onreadystatechange = () => {
     //   if (document.readyState == "complete") {
     //     console.log('loaded');
     //     this.isPreload = false
     //   }
     // }
-    setTimeout(()=>this.isPreload = false,2000)
+    setTimeout(() => this.isPreload = false, 2000)
   }
 }
 
 </script>
 
 <style scoped>
-.menu{
+.menu {
   display: flex;
   justify-content: center;
   margin-top: 56px;
 }
 
-.menu__container{
+.menu__container {
   width: 100%;
   height: 100%;
   padding: 0 16px;
 
 }
-.menu__content{
-  display:flex;
+
+.menu__content {
+  display: flex;
   margin-bottom: 24px;
   position: relative;
 }
 
 
-.menu__section1{
+.menu__section1 {
   flex: 0 0 100%;
-  padding-right:12px;
+  padding-right: 12px;
 }
 
-.preloader-menu{
+.preloader-menu {
   margin-top: 24px;
 }
 
-.section1__content{
+.section1__content {
   visibility: hidden;
   height: 50vh;
 }
 
-.menu__section2{
+.menu__section2 {
   position: sticky;
-  top:64px;
-  padding-left:12px;
+  top: 64px;
+  padding-left: 12px;
 }
 
-.title{
+.title {
   margin-bottom: 24px;
 }
 
-.menu__section2{
-  display:none;
+.menu__section2 {
+  display: none;
 }
 
-.menu__order{
+.menu__order {
   position: sticky;
-  top:64px;
+  top: 64px;
   margin-top: 24px;
 }
 
-.section__button{
-  position:fixed;
-  bottom:0;
-  left:0;
+.section__button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
 }
 
-.visible{
+.visible {
   visibility: visible;
   height: auto;
 }
 
-@media screen and (min-width: 576px){
-  .menu__container{
-    width:540px;
+@media screen and (min-width: 576px) {
+  .menu__container {
+    width: 540px;
   }
 }
 
-@media screen and ( min-width:768px){
-  .menu__container{
+@media screen and (min-width:768px) {
+  .menu__container {
     width: 720px;
   }
-  
-  .content__item{
-    display:flex;
+
+  .content__item {
+    display: flex;
     flex-wrap: wrap;
   }
 
-  .card{
+  .card {
     margin: 8px 24px 8px 0;
     width: 200px;
   }
 }
 
-@media screen and ( min-width:992px){
- .menu__container{
+@media screen and (min-width:992px) {
+  .menu__container {
     width: 960px;
   }
 
   .menu__section1 {
     flex: 1 0 auto;
-    width:66%;
+    width: 66%;
   }
 
-  .menu__section2{
-    display:block;
+  .menu__section2 {
+    display: block;
     flex: 0 0 auto;
-    width:33%;
+    width: 33%;
   }
 
-  .card{
+  .card {
     margin: 8px 16px 8px 0;
     width: 185px;
   }
 }
 
 @media screen and (min-width:1200px) {
-  .menu__container{
-   width: 1140px;
+  .menu__container {
+    width: 1140px;
   }
 
-  .card{
+  .card {
     margin: 8px 40px 8px 0;
     width: 200px;
   }
 }
 
 @media screen and (min-width:1400px) {
-  .menu__container{
+  .menu__container {
     width: 1320px;
   }
 
-  .card{
+  .card {
     margin: 8px 32px 8px 0;
     width: 250px;
   }
@@ -254,4 +253,3 @@ export default {
 
 }
 </style>
-
