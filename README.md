@@ -10,7 +10,7 @@
 _Pizza Delivery — an interactive and responsive web application providing users with a convenient online pizza ordering service, used the Single Page Application (SPA) architectural approach._
 
 
-# [View Demo](https://andrewvoloshin.github.io/Pizza-Delivery/) 
+# [View Demo](https://andrewvoloshin.github.io/Website-Pizza-Vue/) 
 
 
 ## Features:
@@ -28,7 +28,7 @@ _Pizza Delivery — an interactive and responsive web application providing user
 
 ### Clone the repository:
 ```bash
-   git clone https://github.com/your_username/Pizza-Delivery .git
+   git clone https://github.com/your_username/Website-Pizza-Vue.git
    cd project_name
 ```
 ###  Install dependencies and run the project:
