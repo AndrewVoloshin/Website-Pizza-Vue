@@ -10,7 +10,7 @@
 _Pizza Delivery — an interactive and responsive web application providing users with a convenient online pizza ordering service, used the Single Page Application (SPA) architectural approach._
 
 
-# [View Demo](https://andrewvoloshin.github.io/Website-Pizza-Vue/) 
+# [View Demo](https://andrewvoloshin.github.io/Pizza-Delivery/) 
 
 
 ## Features:
