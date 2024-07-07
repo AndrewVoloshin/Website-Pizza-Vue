@@ -1,4 +1,4 @@
-# Pizza Man
+# Pizza Delivery
 
 ![Static Badge](https://img.shields.io/badge/made%20by-AndrewVoloshin-blue)
 ![Static Badge](https://img.shields.io/badge/Vue-93%25-%41b883)
@@ -28,7 +28,7 @@ _Pizza Delivery — an interactive and responsive web application providing user
 
 ### Clone the repository:
 ```bash
-   git clone https://github.com/your_username/Pizza_Delivery .git
+   git clone https://github.com/your_username/Pizza-Delivery .git
    cd project_name
 ```
 ###  Install dependencies and run the project:
