@@ -7,11 +7,11 @@
 
 
 
-_Welcome to the. ._
-
-![Screenshot](https://github.com/AndrewVoloshin/Website-Pizza-Vue/assets/86961260/c8933a13-f5f3-4fff-8a83-0647aaf532b7)
+_Pizza Delivery — an interactive and responsive web application providing users with a convenient online pizza ordering service, used the Single Page Application (SPA) architectural approach._
 
 
+
+![Demo Pizza Delivery](./src/assets/demo pizza delivery.gif)
 
 
 # [View Demo](https://andrewvoloshin.github.io/Website-Pizza-Vue/) 
@@ -19,21 +19,33 @@ _Welcome to the. ._
 
 ## Features:
 
-- **Adaptive Design**: Website adapts to different screen resolutions, providing a comfortable viewing experience on devices with different screen sizes.
+- **Technologies used**: Vue 2, Vuex, Vue Router, Vuelidate.
+-	Users can browse the menu, select, and order pizzas online.
+-	The site adapts to different devices, ensuring comfortable use on PCs, tablets and smartphones.
+-	Ability to manually place ships.
+-	Easy to navigate burger menu is available on mobile devices.
+-	Interactive forms with data validation using Vuelidate.
+-	Application state management with Vuex for efficient and centralised data storage.
+
 
   
 
-## Launching
+## How to Use
 
-### Option 1: Open in a browser
+### Clone the repository:
+```bash
+   git clone https://github.com/your_username/Pizza_Delivery .git
+   cd project_name
+```
+###  Install dependencies and run the project:
 
-1. Clone the repository to your local computer.
-2. Open the `index.html` file in your web browser.
+```bash
+   npm install
+   npm run serve
+```
+Open http://localhost:8080 in your browser to view the application.
 
-### Option 2: Using a local web server
-
-1. Clone the repository to your local computer.
-2. Install a local web server, such as [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
-3. Run the project using the selected local web server.
 
 ## Demonstration
+
+![Screenshot](https://github.com/AndrewVoloshin/Website-Pizza-Vue/assets/86961260/c8933a13-f5f3-4fff-8a83-0647aaf532b7)
