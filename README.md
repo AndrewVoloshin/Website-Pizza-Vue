@@ -10,10 +10,6 @@
 _Pizza Delivery — an interactive and responsive web application providing users with a convenient online pizza ordering service, used the Single Page Application (SPA) architectural approach._
 
 
-
-![Demo Pizza Delivery](./src/assets/demo pizza delivery.gif)
-
-
 # [View Demo](https://andrewvoloshin.github.io/Website-Pizza-Vue/) 
 
 
@@ -27,8 +23,6 @@ _Pizza Delivery — an interactive and responsive web application providing user
 -	Interactive forms with data validation using Vuelidate.
 -	Application state management with Vuex for efficient and centralised data storage.
 
-
-  
 
 ## How to Use
 
@@ -48,4 +42,4 @@ Open http://localhost:8080 in your browser to view the application.
 
 ## Demonstration
 
-![Screenshot](https://github.com/AndrewVoloshin/Website-Pizza-Vue/assets/86961260/c8933a13-f5f3-4fff-8a83-0647aaf532b7)
+![Demo Pizza Delivery](./src/assets/demoPizzaDelivery.gif)
