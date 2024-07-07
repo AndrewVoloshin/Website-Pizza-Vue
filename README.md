@@ -1,7 +1,7 @@
 # Pizza Delivery
 
 ![Static Badge](https://img.shields.io/badge/made%20by-AndrewVoloshin-blue)
-![Static Badge](https://img.shields.io/badge/Vue-93%25-%41b883)
+![Static Badge](https://img.shields.io/badge/Vue-94%25-%41b883)
 ![Static Badge](https://img.shields.io/badge/open%20source-%238b36db)
 ![Static Badge](https://img.shields.io/badge/%E2%9D%A4-red)
 
