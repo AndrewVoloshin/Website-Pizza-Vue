@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-
+    <app-overlay />
     <div class="home__container">
       <div class="home__logo">
         <img class="home__img"
@@ -17,9 +17,11 @@
 </template>
 
 <script>
+import AppOverlay from '@/components/AppOverlay.vue'
 
 export default {
   components: {
+    AppOverlay,
   },
 }
 
