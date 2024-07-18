@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <app-overlay />
+
     <div class="home__container">
       <div class="home__logo">
         <img class="home__img"
@@ -17,11 +17,9 @@
 </template>
 
 <script>
-import AppOverlay from '@/components/AppOverlay.vue'
 
 export default {
   components: {
-    AppOverlay,
   },
 }
 
@@ -33,7 +31,7 @@ export default {
   justify-content: center;
   padding-top: 3rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(@/assets/static/Background\ Pizza.jpg);
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: 50%;
