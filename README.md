@@ -28,8 +28,8 @@ _Pizza Delivery — an interactive and responsive web application providing user
 
 ### Clone the repository:
 ```bash
-   git clone https://github.com/your_username/Website-Pizza-Vue.git
-   cd project_name
+   git clone https://github.com/AndrewVoloshin/Website-Pizza-Vue.git
+   cd Website-Pizza-Vue
 ```
 ###  Install dependencies and run the project:
 
